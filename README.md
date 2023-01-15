@@ -2,6 +2,8 @@
 
 ## Initial setup
 
+### yOOOOOOOOO
+
 All teammates will need (explained in http://weblab.is/install)
 
 - A bash console (on Mac or Linux, this is Terminal. On Windows, we recommend Git Bash)
