@@ -9,7 +9,7 @@ const GOOGLE_CLIENT_ID = "FILL ME IN";
 
 const Skeleton = ({ userId, handleLogin, handleLogout }) => {
   return (
-    <GoogleOAuthProvider clientId={765537002064 - fhpam2p9f5j2fq2725v6racrpi67r2pc.apps.googleusercontent.com}>
+    <GoogleOAuthProvider clientId={"765537002064-fhpam2p9f5j2fq2725v6racrpi67r2pc.apps.googleusercontent.com"}>
       {userId ? (
         <button
           onClick={() => {
