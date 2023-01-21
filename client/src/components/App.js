@@ -50,7 +50,7 @@ const App = () => {
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <About path="/about/"/>
-        <Projects path="/projects/" />
+        <Projects path="/projects/" userId={userId}/>
         <NotFound default />
       </Router>
     </>

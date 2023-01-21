@@ -1,0 +1,12 @@
+.HorizontalLine {
+    height: 2px;
+    background: white;
+}
+
+.ProjBox {
+    margin: 50px;
+}
+
+.ProjTitle {
+    color: white;
+}
