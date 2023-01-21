@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import "../../utilities.css";
+import "./About.css";
 
-const About = () => {
+const About = (props) => {
   return (
     <div>
       <h1>Our About Section</h1>
@@ -8,3 +10,5 @@ const About = () => {
     </div>
   );
 };
+
+export default About;

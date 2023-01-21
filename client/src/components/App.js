@@ -4,6 +4,8 @@ import jwt_decode from "jwt-decode";
 
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
+import About from "./pages/About.js";
+import Projects from "./pages/Projects.js";
 import NavBar from "./modules/NavBar.js";
 
 import "../utilities.css";
@@ -44,9 +46,11 @@ const App = () => {
 
   return (
     <>
-      {<NavBar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />}
+    <NavBar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+        <About path="/about/"/>
+        <Projects path="/projects/" />
         <NotFound default />
       </Router>
     </>
