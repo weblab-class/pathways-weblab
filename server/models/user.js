@@ -5,6 +5,9 @@ const ProjectSchema = new mongoose.Schema({
   project_name: String,
   project_type: String,
   creator_id: String,
+  creation_date: Date,
+  project_completion_date: Date,
+  picture: String, //url to where the picture is stored
   location: {
     address: String,
     latitude: String,
@@ -23,6 +26,7 @@ const ProjectSchema = new mongoose.Schema({
     }
   },
   results: {
+    emissions: Number
   }
 });
 
