@@ -5,8 +5,8 @@ import { Link } from "@reach/router";
 import { socket } from "../../client-socket.js";
 import { get } from "../../utilities";
 import Card from "../modules/Card.js";
-
 import Modal from "react-modal";
+
 const customStyles = {
 content: {
     top: "50%",
@@ -24,12 +24,12 @@ const Projects = (props) => {
   const [projects, setProjects] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
-  //this section is screwing up the website
-  // useEffect(() => {
-  //   get("/api/projects").then((projectObj) => {
-  //     setProjects(projectObj);
-  //   });
-  // },[])
+  
+  useEffect(() => {
+    get("/api/projects").then((projectObj) => {
+      setProjects(projectObj);
+    });
+  },[])
 
   let myProjectsList = null;
   const hasProjects = projects.length !== 0;
