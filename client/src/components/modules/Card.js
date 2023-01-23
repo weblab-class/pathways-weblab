@@ -7,31 +7,31 @@ import "./Card.css";
 /**
  * The card component displayed on the feed. Takes as props:
  * @param {string} project_name
- * @param {string} project_id
+ * @param {string} _id
  * @param {string} project_type
  * @param {string} creator_id
- * @param {string} creator_name
  * @param {string} location
  * @param {string} picture
- * @param {string} results
+ * @param {string} emissions
+ * @param {string} results_id
+ * 
  */
 
 
 const Card = (props) => {
   return (
-    <div>
+    <div className="flex-Container">
       <h1 className="Project-Name">{props.project_name}</h1>
-      <div>
-        <div className="Project-Box flex-Container">
-          <div className="Project-Display">{props.location}</div>
-          <div className="Project-Display">{props.results.emissions}</div>
+        <div className="Card-Container">
+  
           <div className="Project-Display">
-            <img src={props.picture} alt="This is a nice image" />
+            <div className = "flex-items">{props.location}</div>
+            <div className = "flex-items">{props.emissions}</div>
           </div>
-          <button type="button" className="SeeMore-Button">See More</button>
-          </div>
+          <img className="Display-Pic" src={props.picture} alt="This is a nice image" />
+          <Link to="/results/" className="SeeMore-Button">See More</Link>
         </div>
-      </div>
+    </div>
     
   );
 };

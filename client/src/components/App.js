@@ -7,6 +7,8 @@ import Skeleton from "./pages/Skeleton.js";
 import About from "./pages/About.js";
 import Projects from "./pages/Projects.js";
 import NavBar from "./modules/NavBar.js";
+import Results from "./pages/Results.js";
+import Inputs from "./pages/Inputs.js";
 
 import "../utilities.css";
 
@@ -51,6 +53,8 @@ const App = () => {
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <About path="/about/"/>
         <Projects path="/projects/" userId={userId}/>
+        <Results path="/results/" />
+        <Inputs path="/inputs/" />
         <NotFound default />
       </Router>
     </>

@@ -43,8 +43,8 @@ const Projects = (props) => {
         project_type={projectObj.project_type}
         creator_id={projectObj.creator_id}
         location={projectObj.location}
-        picture={projectObj.picture}
-        results={projectObj.results}
+        emissions={projectObj.emissions}
+        results={projectObj.results_id}
       />
     ))
   } else {
@@ -57,7 +57,7 @@ const Projects = (props) => {
         props.userId ? 
         <div className="ProjBox">
           <div className="App">
-            <button onClick={setModalOpen}>Create Project</button>
+            <button className = "Create-Project-Button" onClick={setModalOpen}>Create Project</button>
               <Modal
                 isOpen={modalOpen}
                 onRequestClose={() => setModalOpen(false)}
@@ -65,24 +65,36 @@ const Projects = (props) => {
               >
                 <div>fill in</div>
 
-                <button onClick={() => setModalOpen(false)}>Close Modal</button>
+                <button onClick={() => setModalOpen(false)}>X</button>
+                <Link to="/inputs/" className="Create-Final">Create</Link>
               </Modal>
           </div>
            <h1 className="ProjTitle">My Projects</h1>
-           <div>{myProjectsList}</div>
           <div className="HorizontalLine"></div>
+          <div>{myProjectsList}</div>
            <h1 className="ProjTitle">Templates</h1>
           <div className="HorizontalLine"></div>
+          <Card
+            project_name={"Daniela's Test"}
+            location={"Cuba"}
+            emissions={20}
+            picture={"https://cdn-images.article.com/products/SKU379A/2890x1500/image81730.jpg"}
+          />
         </div>
   : 
   <div className ="ProjBox">
     <h1 className="ProjTitle">Templates</h1>
     <div className="HorizontalLine"></div>
+    <Card
+        project_name={"Daniela's Test"}
+        location={"Cuba"}
+        emissions={20}
+        picture={"https://cdn-images.article.com/products/SKU379A/2890x1500/image81730.jpg"}
+      />
   </div>
-
+      
       }
     </div>
   )    
 };
-
 export default Projects;

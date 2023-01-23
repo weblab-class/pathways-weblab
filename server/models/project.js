@@ -7,11 +7,11 @@ const ProjectSchema = new mongoose.Schema({
   creator_id: String,
   // creation_date: Date, to be added later
   // project_completion_date: Date, add later
-  // picture: String, //url to where the picture is stored, add later
+  picture: String, //url to where the picture is stored, add later
   location: {
     address: String,
     // latitude: String, let's add later
-    // longitude: String
+    // longitude: Strings
   }
 });
 

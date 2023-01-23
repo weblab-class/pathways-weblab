@@ -78,6 +78,7 @@ router.post("project", (req, res) => {
     const newProject = new Project({
       project_name: req.body.project_name,
       project_type: req.body.project_type,
+      picture: req.body.picture,
       creator_id: req.user._id,
       location: {
         address: req.body.location.address,
