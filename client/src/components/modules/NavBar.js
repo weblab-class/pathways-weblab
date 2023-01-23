@@ -13,7 +13,9 @@ const GOOGLE_CLIENT_ID = "765537002064-fhpam2p9f5j2fq2725v6racrpi67r2pc.apps.goo
 const NavBar = (props) => {
   return (
     <nav className="NavBar-container">
-      <div className="NavBar-title u-inlineBlock">PATHWAYS</div>
+      <Link to="/" className="NavBar-title u-inlineBlock">
+        PATHWAYS
+      </Link>
       <div className="NavBar-linkContainer">
         <Link to="/" className="NavBar-link">
           Home
@@ -24,7 +26,9 @@ const NavBar = (props) => {
         <Link to="/projects/" className="NavBar-link">
           Projects
         </Link>
-          <GoogleOAuthProvider clientId={"765537002064-fhpam2p9f5j2fq2725v6racrpi67r2pc.apps.googleusercontent.com"}>
+        <GoogleOAuthProvider
+          clientId={"765537002064-fhpam2p9f5j2fq2725v6racrpi67r2pc.apps.googleusercontent.com"}
+        >
           {props.userId ? (
             <button
               onClick={() => {
@@ -35,10 +39,15 @@ const NavBar = (props) => {
               Logout
             </button>
           ) : (
-            <GoogleLogin onSuccess={props.handleLogin} onError={(err) => console.log(err)} text={"signin"} size={"large"} shape={"circle"} />
+            <GoogleLogin
+              onSuccess={props.handleLogin}
+              onError={(err) => console.log(err)}
+              text={"signin"}
+              size={"large"}
+              shape={"circle"}
+            />
           )}
         </GoogleOAuthProvider>
-        
       </div>
     </nav>
   );
