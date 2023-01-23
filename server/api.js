@@ -15,8 +15,6 @@ const Project = require("./models/project");
 const Input = require("./models/inputs");
 const Result = require("./models/results");
 
-const Project = require("./models/project");
-
 // import authentication library
 const auth = require("./auth");
 
@@ -48,10 +46,6 @@ router.post("/initsocket", (req, res) => {
 // | write your API methods below!|
 // |------------------------------|
 
-
-
-
-
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
@@ -79,7 +73,7 @@ router.get("/project", (req, res) => {
 );
 
 // Create a new project
-router.post("project",  auth.ensureLoggedIn, (req, res) => {
+router.post("project", (req, res) => {
   try {
     const newProject = new Project({
       project_name: req.body.project_name,
@@ -95,6 +89,9 @@ router.post("project",  auth.ensureLoggedIn, (req, res) => {
 }
 );
 
+
+
+// Input data into a project
 
 
 
