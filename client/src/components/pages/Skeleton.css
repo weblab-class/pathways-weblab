@@ -3,7 +3,6 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-.homeBackground {
-  background-color: #1c6325;
+  height:auto;
+  max-width: 100%;
 }

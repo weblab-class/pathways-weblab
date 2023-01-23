@@ -1,34 +1,39 @@
 import React from "react";
 import { Link } from "@reach/router";
-import { GoogleOAuthProvider, GoogleLogin, googleLogout } from "@react-oauth/google";
+import { get } from "../../utilities";
 
 import "./Card.css";
-
-// This identifies your web application to Google's authentication service
-const GOOGLE_CLIENT_ID = "765537002064-fhpam2p9f5j2fq2725v6racrpi67r2pc.apps.googleusercontent.com";
 
 /**
  * The card component displayed on the feed. Takes as props:
  * @param {string} project_name
+ * @param {string} project_id
+ * @param {string} project_type
+ * @param {string} creator_id
+ * @param {string} creator_name
  * @param {string} location
+ * @param {string} picture
+ * @param {string} results
  */
 
 
 const Card = (props) => {
   return (
     <div>
-      <h1 className="">{props.project_name}</h1>
+      <h1 className="Project-Name">{props.project_name}</h1>
       <div>
-        <div className="flex-Container">
-          <div className="">{props.location}</div>
-          <div className="">{props.results.emissions}</div>
-          <div>
-            <img src="" alt="This is a nice image" />
+        <div className="Project-Box flex-Container">
+          <div className="Project-Display">{props.location}</div>
+          <div className="Project-Display">{props.results.emissions}</div>
+          <div className="Project-Display">
+            <img src={props.picture} alt="This is a nice image" />
+          </div>
+          <button type="button" className="SeeMore-Button">See More</button>
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
-export default NavBar;
+export default Card;

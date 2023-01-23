@@ -12,6 +12,8 @@ const express = require("express");
 // import models so we can interact with the database
 const User = require("./models/user");
 
+const Project = require("./models/project");
+
 // import authentication library
 const auth = require("./auth");
 
@@ -42,6 +44,34 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
+
+router.get("/user", (req, res) => {
+  User.findById(req.query.userid).then((user) => {
+    res.send(user);
+  });
+});
+
+router.get("/projects", (req, res) => {
+  // empty selector means get all documents
+  Project.find({}).then((projects) => res.send(projects));
+});
+
+router.post("/project", auth.ensureLoggedIn, (req, res) => {
+  const newProject = new Project({
+    creator_id: req.user.creator_id,
+    creator_name: req.user.name,
+    project_id: req.user.project_id,
+    project_name: req.user.project_name,
+    creation_date: req.user.Date,
+    project_completion_date: req.user.Date,
+    picture: req.user.picture,
+    location: req.user.location,
+    inputs: req.user.inputs,
+    results: req.user.results,
+  });
+
+  newProject.save().then((project) => res.send(project));
+});
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
