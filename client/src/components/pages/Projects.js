@@ -6,7 +6,9 @@ import { socket } from "../../client-socket.js";
 import { get } from "../../utilities";
 import Card from "../modules/Card.js";
 import Modal from "react-modal";
+import Dropdown from "../modules/Dropdown.js";
 
+//layout for modal
 const customStyles = {
 content: {
     top: "50%",
@@ -17,6 +19,7 @@ content: {
     transform: "translate(-50%, -50%)",
     backgroundColor: "white",
     width: 400,
+    height: 400,
   },
 };
 
@@ -63,9 +66,15 @@ const Projects = (props) => {
                 onRequestClose={() => setModalOpen(false)}
                 style={customStyles}
               >
-                <div>fill in</div>
-
+                <h2>NEW PROJECT</h2>
                 <button onClick={() => setModalOpen(false)}>X</button>
+                <div>Input a Project Name:</div>
+                <input type = "text" id = "favourite" size = "20" /> 
+
+                <div>Select a Project Type:</div>
+                <Dropdown/>
+
+                <button onClick={() => setModalOpen(false)}>Delete</button>
                 <Link to="/inputs/" className="Create-Final">Create</Link>
               </Modal>
           </div>

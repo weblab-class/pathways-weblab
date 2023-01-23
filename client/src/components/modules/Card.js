@@ -28,7 +28,7 @@ const Card = (props) => {
             <div className = "flex-items">{props.location}</div>
             <div className = "flex-items">{props.emissions}</div>
           </div>
-          <img className="Display-Pic" src={props.picture} alt="This is a nice image" />
+          <img className="Display-Pic" src={props.picture} />
           <Link to="/results/" className="SeeMore-Button">See More</Link>
         </div>
     </div>
