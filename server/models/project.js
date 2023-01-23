@@ -1,33 +1,17 @@
 const mongoose = require("mongoose");
 
 const ProjectSchema = new mongoose.Schema({
-  project_id: String,
+  _id: String,
   project_name: String,
   project_type: String,
   creator_id: String,
-  creator_name: String,
-  creation_date: Date,
-  project_completion_date: Date,
-  picture: String, //url to where the picture is stored
+  // creation_date: Date, to be added later
+  // project_completion_date: Date, add later
+  // picture: String, //url to where the picture is stored, add later
   location: {
     address: String,
-    latitude: String,
-    longitude: String
-  },
-  inputs: {
-    materials: {
-      concrete: {
-        quantity: Number,
-        unit: String
-      },
-      steel: {
-        quantity: Number,
-        unit: String
-      }
-    }
-  },
-  results: {
-    emissions: Number
+    // latitude: String, let's add later
+    // longitude: String
   }
 });
 

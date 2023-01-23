@@ -11,6 +11,9 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Project = require("./models/project");
+const Input = require("./models/inputs");
+const Result = require("./models/results");
 
 const Project = require("./models/project");
 
@@ -51,32 +54,59 @@ router.get("/user", (req, res) => {
   });
 });
 
-router.get("/projects", (req, res) => {
-  // empty selector means get all documents
-  Project.find({}).then((projects) => res.send(projects));
-});
 
-router.post("/project", auth.ensureLoggedIn, (req, res) => {
-  const newProject = new Project({
-    creator_id: req.user.creator_id,
-    creator_name: req.user.name,
-    project_id: req.user.project_id,
-    project_name: req.user.project_name,
-    creation_date: req.user.Date,
-    project_completion_date: req.user.Date,
-    picture: req.user.picture,
-    location: req.user.location,
-    inputs: req.user.inputs,
-    results: req.user.results,
-  });
-
-  newProject.save().then((project) => res.send(project));
-});
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });
 });
+
+// Get all projects
+router.get("/projects", (req, res) => {
+  try {
+    Project.find({}).then((projects) => res.send(projects));
+  } catch (error) {
+    console.log(error)
+  };
+}
+);
+
+// Get specific project information
+router.get("/project", (req, res) => {
+  try {
+    Project.find({ project_id: req.query._id }).then((project) => res.send(project));
+  } catch (error) {
+    console.log(error)
+  };
+}
+);
+
+// Create a new project
+router.post("project", (req, res) => {
+  try {
+    const newProject = new Project({
+      project_name: req.body.project_name,
+      project_type: req.body.project_type,
+      creator_id: req.user._id,
+      location: {
+        address: req.body.location.address,
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  };
+}
+);
+
+
+router.all("*", (req, res) => {
+  console.log(`API route not found: ${req.method} ${req.url}`);
+  res.status(404).send({ msg: "API route not found" });
+});
+// Input data into a project
+
+
+
 
 module.exports = router;
