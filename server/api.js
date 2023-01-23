@@ -83,7 +83,7 @@ router.get("/project", (req, res) => {
 );
 
 // Create a new project
-router.post("project", (req, res) => {
+router.post("project",  auth.ensureLoggedIn, (req, res) => {
   try {
     const newProject = new Project({
       project_name: req.body.project_name,
