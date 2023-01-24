@@ -50,7 +50,8 @@ router.post("/initsocket", (req, res) => {
 // Get my projects
 router.get("/projects", (req, res) => {
   try {
-    Project.find({creator_id: req.query.creator_id}).then((projects) => res.send(projects));
+    const creator_id_var = req.query.creator_id;
+    Project.find({ creator_id: creator_id_var }).then((projects) => res.send(projects));
   } catch (error) {
     console.log(error)
   };
@@ -60,7 +61,7 @@ router.get("/projects", (req, res) => {
 // Get specific project information
 router.get("/project", (req, res) => {
   try {
-    Project.find({ project_id: req.query._id }).then((project) => res.send(project));
+    Project.find({ project_id: req.query.userId }).then((project) => res.send(project));
   } catch (error) {
     console.log(error)
   };
@@ -68,20 +69,22 @@ router.get("/project", (req, res) => {
 );
 
 // Create a new project
-router.post("project", (req, res) => {
-  try {
-    const newProject = new Project({
-      project_name: req.body.project_name,
-      project_type: req.body.project_type,
-      picture: req.body.picture,
-      creator_id: req.user._id,
-      location: {
-        address: req.body.location.address,
-      }
-    });
-  } catch (error) {
-    console.log(error);
-  };
+router.post("/project", (req, res) => {
+  // try {
+  const newProject = new Project({
+    project_name: req.body.project_name,
+    project_type: req.body.project_type,
+    picture: req.body.picture,
+    creator_id: req.user._id,
+    location: {
+      city: req.body.location.city,
+      country: req.body.location.country
+    }
+  });
+  newProject.save();
+  // } catch (error) {
+  //   console.log(error);
+  // };
 }
 );
 

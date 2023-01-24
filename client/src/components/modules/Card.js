@@ -22,17 +22,17 @@ const Card = (props) => {
   return (
     <div className="flex-Container">
       <h1 className="Project-Name">{props.project_name}</h1>
-        <div className="Card-Container">
-  
-          <div className="Project-Display">
-            <div className = "flex-items">{props.location}</div>
-            <div className = "flex-items">{props.emissions}</div>
-          </div>
-          <img className="Display-Pic" src={props.picture} />
-          <Link to="/results/" className="SeeMore-Button">See More</Link>
+      <div className="Card-Container">
+
+        <div className="Project-Display">
+          <div className="flex-items">{props.location.city}</div>
+          <div className="flex-items">{props.location.country}</div>
         </div>
+        <img className="Display-Pic" src={props.picture} />
+        <Link to="/results/" className="SeeMore-Button">See More</Link>
+      </div>
     </div>
-    
+
   );
 };
 
