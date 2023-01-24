@@ -68,7 +68,6 @@ const Projects = (props) => {
   // Create a project
   let navigate = useNavigate();
   const createProject = () => {
-    console.log("Yo");
     const body = {
       project_name: projectName,
       project_type: projectType,
@@ -79,7 +78,7 @@ const Projects = (props) => {
       }
     };
     post("/api/project", body).then((project) => {
-      navigate("/inputs", { state: { project_id: project._id } })
+      navigate("/inputs", { state: { project_id: project._id, user_id: props.userId } })
     });
   };
 

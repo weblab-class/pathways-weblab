@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const InputSchema = new mongoose.Schema({
     project_id: String,
+    creator_id: String,
     materials: {
         concrete: {
             quantity: Number,
@@ -18,7 +19,7 @@ const InputSchema = new mongoose.Schema({
         glass: {
             quantity: Number,
             unit: String,
-        } 
+        }
     }
 });
 
