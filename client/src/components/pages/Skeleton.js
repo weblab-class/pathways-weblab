@@ -4,19 +4,23 @@ import { GoogleOAuthProvider, GoogleLogin, googleLogout } from "@react-oauth/goo
 import "../../utilities.css";
 import "./Skeleton.css";
 
-import mapstockphoto from "../../public/mapstockphoto.png";
-
 const GOOGLE_CLIENT_ID = "765537002064-fhpam2p9f5j2fq2725v6racrpi67r2pc.apps.googleusercontent.com";
 
-const BackgroundColor = "#1f8f3d";
 const Skeleton = ({ userId, handleLogin, handleLogout }) => {
   return (
-    <div className="homeBackground">
-      <GoogleOAuthProvider
-        clientId={"765537002064-fhpam2p9f5j2fq2725v6racrpi67r2pc.apps.googleusercontent.com"}
-      >
-        <img className="Map" src={mapstockphoto} alt="Map of Projects"></img>
-      </GoogleOAuthProvider>
+    // <img className="Map" src={mapstockphoto} alt="Map of Projects"></img>
+    <div className="Skeleton">
+      <video
+        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+        autoPlay
+        loop
+        muted
+      />
+      <div className="homeBackground">
+        <GoogleOAuthProvider
+          clientId={"765537002064-fhpam2p9f5j2fq2725v6racrpi67r2pc.apps.googleusercontent.com"}
+        ></GoogleOAuthProvider>
+      </div>
     </div>
   );
 };
