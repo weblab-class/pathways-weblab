@@ -93,6 +93,7 @@ const Projects = (props) => {
         project_name={projectObj.project_name}
         project_type={projectObj.project_type}
         creator_id={projectObj.creator_id}
+        picture={projectObj.picture}
         location={{
           city: projectObj.location.city,
           country: projectObj.location.country
