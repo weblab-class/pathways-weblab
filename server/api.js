@@ -132,37 +132,6 @@ router.post("/inputs", (req, res) => {
 }
 );
 
-// Create a new input
-router.post("/inputs", (req, res) => {
-  try {
-    const newInput = new Input({
-      project_id: req.body.project_id,
-      creator_id: req.body.creator_id,
-      materials: {
-        concrete: {
-          quantity: req.body.materials.concrete.quantity,
-          unit: req.body.materials.concrete.unit
-        },
-        steel: {
-          quantity: req.body.materials.steel.quantity,
-          unit: req.body.materials.steel.unit
-        },
-        timber: {
-          quantity: req.body.materials.timber.quantity,
-          unit: req.body.materials.timber.unit
-        },
-        glass: {
-          quantity: req.body.materials.glass.quantity,
-          unit: req.body.materials.glass.unit
-        }
-      }
-    });
-    newInput.save().then((input) => res.send(input));
-  } catch (error) {
-    console.log(error);
-  };
-}
-);
 
 
 // Get specific project information

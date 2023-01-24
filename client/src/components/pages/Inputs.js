@@ -25,6 +25,7 @@ const Inputs = (props) => {
     });
   }, []);
 
+  const project_type1 = project.project_type
   // called whenever the user types in the concrete box
   const handleConcreteQuantityChange = (event) => {
     setConcreteQuantity(event.target.value);
@@ -108,9 +109,9 @@ const Inputs = (props) => {
             </div>
             <div>
               <h1>{project.project_name}</h1>
-              <h2>This project is a {project.project_type}</h2>
+              <h2>This project is a {project_type1}</h2>
               {/* <h2>{project.location.city}</h2>
-          <h2>{project.location.country}</h2> */}
+              <h2>{project.location.country}</h2>  */}
               <div className="HorizontalLine"></div>
               <h2> Inputs </h2>
 
