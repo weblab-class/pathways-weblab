@@ -9,8 +9,16 @@ const InputSchema = new mongoose.Schema({
         },
         steel: {
             quantity: Number,
-            unit: String
-        }
+            unit: String,
+        },
+        timber: {
+            quantity: Number,
+            unit: String,
+        },
+        glass: {
+            quantity: Number,
+            unit: String,
+        } 
     }
 });
 

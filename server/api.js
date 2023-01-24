@@ -47,10 +47,10 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 
 
-// Get all projects
+// Get my projects
 router.get("/projects", (req, res) => {
   try {
-    Project.find({}).then((projects) => res.send(projects));
+    Project.find({creator_id: req.query.creator_id}).then((projects) => res.send(projects));
   } catch (error) {
     console.log(error)
   };
