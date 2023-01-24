@@ -81,7 +81,7 @@ router.post("/project", (req, res) => {
       country: req.body.location.country
     }
   });
-  newProject.save();
+  newProject.save().then((project) => res.send(project));
   // } catch (error) {
   //   console.log(error);
   // };

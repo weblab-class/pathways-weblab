@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../../utilities.css";
 import "./Projects.css";
-import { Link } from "@reach/router";
+import { Link, useNavigate } from "@reach/router";
 import { socket } from "../../client-socket.js";
 import { get, post } from "../../utilities";
 import Card from "../modules/Card.js";
@@ -66,6 +66,7 @@ const Projects = (props) => {
   }
 
   // Create a project
+  let navigate = useNavigate();
   const createProject = () => {
     console.log("Yo");
     const body = {
@@ -77,10 +78,13 @@ const Projects = (props) => {
         country: projectCountry
       }
     };
-    post("/api/project", body).then(() => {
-      console.log("it woooorked");
+    post("/api/project", body).then((project) => {
+      navigate("/inputs", { state: { project_id: project._id } })
     });
   };
+
+  // Navigate to input page when a project is created
+
 
   let myProjectsList = null;
   const hasProjects = projects.length !== 0;
@@ -175,7 +179,8 @@ const Projects = (props) => {
 
 
                 <button onClick={() => setModalOpen(false)}>Delete</button>
-                <Link to="/inputs/" className="Create-Final" onClick={() => { createProject() }}>Create</Link>
+                <button onClick={() => { createProject() }}>Create</button>
+                {/* <Link to="/inputs/" className="Create-Final" onClick={() => { createProject() }}>Create</Link>*/}
               </Modal>
             </div>
             <h1 className="ProjTitle">My Projects</h1>
