@@ -6,11 +6,11 @@ import { Link } from "@reach/router";
 
 const Inputs = (props) => {
   const location = useLocation();
-  console.log(location.state);
+  const project_id = location.state.project_id;
   return (
     <div>
       <Link to="/projects/" className="Go-Back-Button">Back</Link>
-      <h1>"Variable with name of project"</h1>
+      <h1>{project_id}</h1>
       <h1> Inputs </h1>
       <div className="HorizontalLine"></div>
       <h2>Project Type: "input variable with project type"</h2>
@@ -19,5 +19,4 @@ const Inputs = (props) => {
     </div>
   );
 };
-
 export default Inputs;

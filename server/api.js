@@ -61,7 +61,8 @@ router.get("/projects", (req, res) => {
 // Get specific project information
 router.get("/project", (req, res) => {
   try {
-    Project.find({ project_id: req.query.userId }).then((project) => res.send(project));
+    const project_id_var = req.query.project_id
+    Project.find({ _id: project_id_var }).then((project) => res.send(project));
   } catch (error) {
     console.log(error)
   };
@@ -88,6 +89,37 @@ router.post("/project", (req, res) => {
 }
 );
 
+
+// Get specific project information
+router.get("/results", (req, res) => {
+  try {
+    const project_id_var = req.query.project_id
+    Result.find({ _id: project_id_var }).then((result) => res.send(result));
+  } catch (error) {
+    console.log(error)
+  };
+}
+);
+
+// Create a new result
+router.post("/results", (req, res) => {
+  // try {
+  const newResult = new Result({
+    project_id: req.body.project_id,
+    creator_id: req.body.creator_id,
+    project_name: req.body.project_name,
+    total_emissions: req.body.total_emissions,
+    concrete_emissions: req.body.concrete_emissions,
+    glass_emissions: req.body.glass_emissions,
+    steel_emissions: req.body.steel_emissions,
+    timber_emissions: req.body.timber_emissions,
+  });
+  newResult.save().then((result) => res.send(result));
+  // } catch (error) {
+  //   console.log(error);
+  // };
+}
+);
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
