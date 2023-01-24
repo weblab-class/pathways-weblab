@@ -61,8 +61,19 @@ router.get("/projects", (req, res) => {
 // Get specific project information
 router.get("/project", (req, res) => {
   try {
-    const project_id_var = req.query.project_id
+    const project_id_var = req.query.project_id;
     Project.find({ _id: project_id_var }).then((project) => res.send(project));
+  } catch (error) {
+    console.log(error)
+  };
+}
+);
+
+// Get specific project information
+router.get("/inputs", (req, res) => {
+  try {
+    const project_id_var = req.query.project_id;
+    Input.find({ _id: project_id_var }).then((input) => res.send(input));
   } catch (error) {
     console.log(error)
   };
@@ -86,6 +97,70 @@ router.post("/project", (req, res) => {
   // } catch (error) {
   //   console.log(error);
   // };
+}
+);
+
+// Create a new input
+router.post("/inputs", (req, res) => {
+  try {
+    const newInput = new Input({
+      project_id: req.body.project_id,
+      creator_id: req.body.creator_id,
+      materials: {
+        concrete: {
+          quantity: req.body.materials.concrete.quantity,
+          unit: req.body.materials.concrete.unit
+        },
+        steel: {
+          quantity: req.body.materials.steel.quantity,
+          unit: req.body.materials.steel.unit
+        },
+        timber: {
+          quantity: req.body.materials.timber.quantity,
+          unit: req.body.materials.timber.unit
+        },
+        glass: {
+          quantity: req.body.materials.glass.quantity,
+          unit: req.body.materials.glass.unit
+        }
+      }
+    });
+    newInput.save().then((input) => res.send(input));
+  } catch (error) {
+    console.log(error);
+  };
+}
+);
+
+// Create a new input
+router.post("/inputs", (req, res) => {
+  try {
+    const newInput = new Input({
+      project_id: req.body.project_id,
+      creator_id: req.body.creator_id,
+      materials: {
+        concrete: {
+          quantity: req.body.materials.concrete.quantity,
+          unit: req.body.materials.concrete.unit
+        },
+        steel: {
+          quantity: req.body.materials.steel.quantity,
+          unit: req.body.materials.steel.unit
+        },
+        timber: {
+          quantity: req.body.materials.timber.quantity,
+          unit: req.body.materials.timber.unit
+        },
+        glass: {
+          quantity: req.body.materials.glass.quantity,
+          unit: req.body.materials.glass.unit
+        }
+      }
+    });
+    newInput.save().then((input) => res.send(input));
+  } catch (error) {
+    console.log(error);
+  };
 }
 );
 
