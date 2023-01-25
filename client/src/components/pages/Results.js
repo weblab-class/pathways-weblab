@@ -30,17 +30,17 @@ const Results = (props) => {
     });
   }, [])
 
-  const conc_quantity= inputs.materials.concrete.quantity;
-  const conc_unit= inputs.materials.concrete.unit;
+  const conc_quantity= inputs.concrete_quantity;
+  const conc_unit= inputs.concrete_unit;
   
-  const glass_quantity= inputs.materials.glass.quantity;
-  const glass_unit= inputs.materials.glass.unit;
+  const glass_quantity= inputs.glass_quantity;
+  const glass_unit= inputs.glass_unit;
 
-  const steel_quantity= inputs.materials.steel.quantity;
-  const steel_unit= inputs.materials.steel.unit;
+  const steel_quantity= inputs.steel_quantity;
+  const steel_unit= inputs.steel_unit;
 
-  const timber_quantity= inputs.materials.steel.quantity;
-  const timber_unit= inputs.materials.steel.unit;
+  const timber_quantity= inputs.steel_quantity;
+  const timber_unit= inputs.steel_unit;
 
   
   useEffect(() => {
