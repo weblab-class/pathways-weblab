@@ -71,14 +71,24 @@ const Inputs = (props) => {
     const body = {
       project_id: locationfc.state.project_id,
       creator_id: locationfc.state.user_id,
-      concrete_quantity: concreteQuantity,
-      concrete_unit: concreteQuantityUnit,
-      steel_quantity: steelQuantity,
-      steel_unit: steelQuantityUnit,
-      timber_quantity: timberQuantity,
-      timber_unit: timberQuantityUnit,
-      glass_quantity: glassQuantity,
-      glass_unit: glassQuantityUnit,
+      materials: {
+        concrete: {
+          quantity: concreteQuantity,
+          unit: concreteQuantityUnit
+        },
+        steel: {
+          quantity: steelQuantity,
+          unit: steelQuantityUnit
+        },
+        timber: {
+          quantity: timberQuantity,
+          unit: timberQuantityUnit
+        },
+        glass: {
+          quantity: glassQuantity,
+          unit: glassQuantityUnit
+        }
+      }
         
     };
     post("/api/inputs", body).then((input) => {
