@@ -12,7 +12,7 @@ const ProjectSchema = new mongoose.Schema({
     country: String
     // latitude: String, let's add later
     // longitude: Strings
-  }
+  },
 });
 
 // compile model from schema

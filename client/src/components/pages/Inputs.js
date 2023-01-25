@@ -65,8 +65,6 @@ const Inputs = (props) => {
     setGlassQuantityUnit(event.target.value);
   };
 
-  console.log(project);
-
   // Create a project
   let navigate = useNavigate();
   const createInput = () => {
@@ -110,7 +108,7 @@ const Inputs = (props) => {
               <h1>{project.project_name}</h1>
               <h2>This project is a {project.project_type}</h2>
               {/* <h2>{project.location.city}</h2>
-          <h2>{project.location.country}</h2> */}
+              <h2>{project.location.country}</h2> */}
               <div className="HorizontalLine"></div>
               <h2> Inputs </h2>
 
