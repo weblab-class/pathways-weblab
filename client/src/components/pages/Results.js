@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "@reach/router";
 import { get, post } from "../../utilities";
 import "../../utilities.css";
-import { get, post } from "../../utilities";
 import "./Results.css";
 import { Link } from "@reach/router";
 
@@ -93,12 +92,6 @@ const Results = (props) => {
     createResults();
 
   });
-
-
-
-
-  
-
 
 
 
