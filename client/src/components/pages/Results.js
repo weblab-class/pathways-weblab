@@ -92,7 +92,7 @@ const Results = (props) => {
   return (
     <div>
       {
-        creator_id_var ? 
+        props.userId ? 
         <div>
           <h1>Results</h1>
           <p> This is the results section. </p>

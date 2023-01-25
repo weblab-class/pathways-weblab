@@ -10,7 +10,8 @@ import "./Card.css";
  * @param {string} _id
  * @param {string} project_type
  * @param {string} creator_id
- * @param {string} location
+ * @param {string} location_city
+ * @param {string} location_country
  * @param {string} picture
  * @param {string} emissions
  * @param {string} results_id
@@ -25,8 +26,8 @@ const Card = (props) => {
       <div className="Card-Container">
 
         <div className="Project-Display">
-          <div className="flex-items">{props.location.city}</div>
-          <div className="flex-items">{props.location.country}</div>
+          <div className="flex-items">{props.location_city}</div>
+          <div className="flex-items">{props.location_country}</div>
         </div>
         <img className="Display-Pic" src={props.picture} />
         <Link to="/results/" className="SeeMore-Button">See More</Link>
