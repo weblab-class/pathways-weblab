@@ -72,10 +72,8 @@ const Projects = (props) => {
       project_name: projectName,
       project_type: projectType,
       picture: projectPicture,
-      location: {
-        city: projectCity,
-        country: projectCountry
-      }
+      location_city: projectCity,
+      location_country: projectCountry
     };
     post("/api/project", body).then((project) => {
       navigate("/inputs", { state: { project_id: project._id, user_id: props.userId } })
@@ -97,10 +95,9 @@ const Projects = (props) => {
         project_type={projectObj.project_type}
         creator_id={projectObj.creator_id}
         picture={projectObj.picture}
-        location={{
-          city: projectObj.location.city,
-          country: projectObj.location.country
-        }}
+        location_city= {projectObj.location_city}
+        location_country= {projectObj.location_country}
+        
       />
     ))
   } else {
@@ -189,10 +186,8 @@ const Projects = (props) => {
             <div className="HorizontalLine"></div>
             <Card
               project_name={"Daniela's Test"}
-              location={{
-                city: "Havana",
-                country: "Cuba"
-              }}
+              location_city= {"Havana"}
+              location_country= {"Cuba"}              
               picture={"https://cdn-images.article.com/products/SKU379A/2890x1500/image81730.jpg"}
             />
           </div>
@@ -202,10 +197,8 @@ const Projects = (props) => {
             <div className="HorizontalLine"></div>
             <Card
               project_name={"Daniela's Test"}
-              location={{
-                city: "Havana",
-                country: "Cuba"
-              }}
+              location_city= {"Havana"}
+              location_country= {"Cuba"}              
               picture={"https://cdn-images.article.com/products/SKU379A/2890x1500/image81730.jpg"}
             />
           </div>
@@ -213,5 +206,5 @@ const Projects = (props) => {
       }
     </div>
   )
-};
+    };
 export default Projects;

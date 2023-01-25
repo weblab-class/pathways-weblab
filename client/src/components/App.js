@@ -53,9 +53,9 @@ const App = () => {
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <About path="/about/"/>
         <Projects path="/projects/" userId={userId}/>
-        <Results path="/results/" />
-        <Inputs path="/inputs/" />
-        <NotFound default />
+        <Results path="/results/" userId={userId}/>
+        <Inputs path="/inputs/" userId={userId}/>
+        <NotFound default userId={userId}/>
       </Router>
     </>
   );

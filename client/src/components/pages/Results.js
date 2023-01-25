@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "@reach/router";
+import { get, post } from "../../utilities";
 import "../../utilities.css";
 import "./Results.css";
 import { Link } from "@reach/router";
@@ -25,22 +26,21 @@ const Results = (props) => {
 
   useEffect(() => {
     get("/api/inputs", { project_id: project_id_var }).then((inputObj) => {
-      setInputs(inputObj);
+      setInputs(inputObj[0]);
     });
   }, [])
-
 
   const conc_quantity= inputs.materials.concrete.quantity;
   const conc_unit= inputs.materials.concrete.unit;
   
-  const glass_quantity= inputs.materials.concrete.quantity;
-  const glass_unit= inputs.materials.concrete.unit;
+  const glass_quantity= inputs.materials.glass.quantity;
+  const glass_unit= inputs.materials.glass.unit;
 
-  const steel_quantity= inputs.materials.concrete.quantity;
-  const steel_unit= inputs.materials.concrete.unit;
+  const steel_quantity= inputs.materials.steel.quantity;
+  const steel_unit= inputs.materials.steel.unit;
 
-  const timber_quantity= inputs.materials.concrete.quantity;
-  const timber_unit= inputs.materials.concrete.unit;
+  const timber_quantity= inputs.materials.steel.quantity;
+  const timber_unit= inputs.materials.steel.unit;
 
   
   useEffect(() => {
@@ -92,16 +92,16 @@ const Results = (props) => {
   return (
     <div>
       {
-        creator_id_var ? 
+        props.userId ? 
         <div>
           <h1>Results</h1>
           <p> This is the results section. </p>
           <Link to="/projects/" className="Go-Back-Button">Back</Link>
           <div>Total Emissions: {total_emissions_all} kg CO2</div>
-          <div className="Each-Material">Concrete-Emissions: {concrete_emissions} kg CO2</div>
-          <div className="Each-Material">Glass-Emissions: {glass_emissions} kg CO2</div>
-          <div className="Each-Material">Steel-Emissions: {steel_emissions} kg CO2</div>
-          <div className="Each-Material">Timber-Emissions: {timber_emissions} kg CO2</div>
+          <div className="Each-Material">Concrete-Emissions: {conc_total} kg CO2</div>
+          <div className="Each-Material">Glass-Emissions: {glass_total} kg CO2</div>
+          <div className="Each-Material">Steel-Emissions: {steel_total} kg CO2</div>
+          <div className="Each-Material">Timber-Emissions: {timber_total} kg CO2</div>
         </div>
         :
         <h1>Please log in!</h1>}

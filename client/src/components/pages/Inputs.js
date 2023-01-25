@@ -8,13 +8,13 @@ import { Link } from "@reach/router";
 const Inputs = (props) => {
   const [project, setProject] = useState([]);
   const [concreteQuantity, setConcreteQuantity] = useState(0);
-  const [concreteQuantityUnit, setConcreteQuantityUnit] = useState(0);
-  const [steelQuantityUnit, setSteelQuantityUnit] = useState(0);
+  const [concreteQuantityUnit, setConcreteQuantityUnit] = useState("kg");
+  const [steelQuantityUnit, setSteelQuantityUnit] = useState("kg");
   const [steelQuantity, setSteelQuantity] = useState(0);
   const [timberQuantity, setTimberQuantity] = useState(0);
-  const [timberQuantityUnit, setTimberQuantityUnit] = useState(0);
+  const [timberQuantityUnit, setTimberQuantityUnit] = useState("kg");
   const [glassQuantity, setGlassQuantity] = useState(0);
-  const [glassQuantityUnit, setGlassQuantityUnit] = useState(0);
+  const [glassQuantityUnit, setGlassQuantityUnit] = useState("kg");
   const locationfc = useLocation();
 
   // Get the project information
@@ -73,24 +73,15 @@ const Inputs = (props) => {
     const body = {
       project_id: locationfc.state.project_id,
       creator_id: locationfc.state.user_id,
-      materials: {
-        concrete: {
-          quantity: concreteQuantity,
-          unit: concreteQuantityUnit
-        },
-        steel: {
-          quantity: steelQuantity,
-          unit: steelQuantityUnit
-        },
-        timber: {
-          quantity: timberQuantity,
-          unit: timberQuantityUnit
-        },
-        glass: {
-          quantity: glassQuantity,
-          unit: glassQuantityUnit
-        }
-      }
+      concrete_quantity: concreteQuantity,
+      concrete_unit: concreteQuantityUnit,
+      steel_quantity: steelQuantity,
+      steel_unit: steelQuantityUnit,
+      timber_quantity: timberQuantity,
+      timber_unit: timberQuantityUnit,
+      glass_quantity: glassQuantity,
+      glass_unit: glassQuantityUnit,
+        
     };
     post("/api/inputs", body).then((input) => {
       navigate("/results", { state: { project_id: input.project_id, user_id: input.creator_id } })
@@ -100,7 +91,7 @@ const Inputs = (props) => {
   return (
     <div>
 
-      {locationfc.state.user_id ?
+      {props.userId ?
         <div>
           <div className="InputBox">
             <div>
@@ -109,13 +100,13 @@ const Inputs = (props) => {
             <div>
               <h1>{project.project_name}</h1>
               <h2>This project is a {project.project_type}</h2>
-              {/* <h2>{project.location.city}</h2>
-          <h2>{project.location.country}</h2> */}
+              <h2>{project.location_city}</h2>
+              <h2>{project.location_country}</h2> 
               <div className="HorizontalLine"></div>
               <h2> Inputs </h2>
 
               <div>Concrete</div>
-              <input type="number"
+              <input type="number" min="0"
                 name="Concrete Input"
                 id="favourite"
                 placeholder="Concrete quantity"
@@ -134,7 +125,7 @@ const Inputs = (props) => {
               </div>
 
               <div>Steel</div>
-              <input type="number"
+              <input type="number" min="0"
                 name="Steel Input"
                 id="favourite"
                 placeholder="Steel quantity"
@@ -153,7 +144,7 @@ const Inputs = (props) => {
               </div>
 
               <div>Timber</div>
-              <input type="number"
+              <input type="number" min="0"
                 name="Timber Input"
                 id="favourite"
                 placeholder="Timber quantity"
@@ -172,7 +163,7 @@ const Inputs = (props) => {
               </div>
 
               <div>Glass</div>
-              <input type="number"
+              <input type="number" min="0" 
                 name="Glass Input"
                 id="favourite"
                 placeholder="Glass quantity"
