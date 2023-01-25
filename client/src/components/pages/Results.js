@@ -93,15 +93,18 @@ const Results = (props) => {
 
     createResults();
 
+    return (total_emissions_all);
+
   });
-
-
 
 
   return (
     <div>
-      yo</div>
-
+      <h1>Results</h1>
+      <p> This is the results section. </p>
+      <Link to="/projects/" className="Go-Back-Button">Back</Link>
+      <div>Total Emissions: {total_emissions_all} kg CO2</div>
+    </div>
     //   {
     //     creator_id_var ?
     //       <div>
