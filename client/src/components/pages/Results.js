@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "@reach/router";
 import { get, post } from "../../utilities";
 import "../../utilities.css";
+import { get, post } from "../../utilities";
 import "./Results.css";
 import { Link } from "@reach/router";
 
@@ -12,11 +13,11 @@ const steel_kgCO2_kgunit = 3.02;
 const timber_kgCO2_kgunit = 0.492;
 const lbs_per_kg = 2.205;
 const kg_per_lbs = 0.454;
-const conc_total = 0;
-const glass_total = 0;
-const steel_total = 0;
-const timber_total = 0;
-const total_emissions_all = 0;
+let conc_total;
+let glass_total;
+let steel_total;
+let timber_total;
+let total_emissions_all;
 
 const Results = (props) => {
   const [inputs, setInputs] = useState([]);
@@ -24,69 +25,81 @@ const Results = (props) => {
   const project_id_var = locationfc.state.project_id;
   const creator_id_var = locationfc.state.user_id;
 
-  useEffect(() => {
-    get("/api/inputs", { project_id: project_id_var }).then((inputObj) => {
-      setInputs(inputObj[0]);
-    });
-  }, [])
+  const getInputs = async () => {
+    useEffect(() => {
+      get("/api/inputs", { project_id: project_id_var }).then((inputObj) => {
+        setInputs(inputObj[0]);
+        console.log(inputObj[0]);
+      });
+    }, [])
+  };
 
-  const conc_quantity= inputs.concrete_quantity;
-  const conc_unit= inputs.concrete_unit;
-  
-  const glass_quantity= inputs.glass_quantity;
-  const glass_unit= inputs.glass_unit;
+  const createResults = () => {
+    const body = {
+      project_id: project_id_var,
+      creator_id: creator_id_var,
+      total_emissions: total_emissions_all,
+      concrete_emissions: conc_total,
+      glass_emissions: glass_total,
+      steel_emissions: steel_total,
+      timber_emissions: timber_total,
+    }
+    post("/api/results", body)
+  };
 
-  const steel_quantity= inputs.steel_quantity;
-  const steel_unit= inputs.steel_unit;
+  getInputs().then(() => {
+    const conc_quantity= inputs.materials.concrete.quantity;
+    const conc_unit= inputs.materials.concrete.unit;
+    
+    const glass_quantity= inputs.materials.glass.quantity;
+    const glass_unit= inputs.materials.glass.unit;
 
-  const timber_quantity= inputs.steel_quantity;
-  const timber_unit= inputs.steel_unit;
+    const steel_quantity= inputs.materials.steel.quantity;
+    const steel_unit= inputs.materials.steel.unit;
 
-  
-  useEffect(() => {
-    if ({conc_unit} === "kg"){
-      conc_total = conc_quantity*concrete_kgCO2_kgunit;
+    const timber_quantity= inputs.materials.steel.quantity;
+    const timber_unit= inputs.materials.steel.unit;
+
+    //let conc_total;
+    if ({ conc_unit } === "kg") {
+      conc_total = conc_quantity * concrete_kgCO2_kgunit;
     } else {
-      conc_total = conc_quantity*concrete_kgCO2_kgunit*kg_per_lbs;
+      conc_total = conc_quantity * concrete_kgCO2_kgunit * kg_per_lbs;
     }
-    if ({steel_unit} === "kg"){
-      steel_total = steel_quantity*steel_kgCO2_kgunit;
+
+    //let steel_total;
+    if ({ steel_unit } === "kg") {
+      steel_total = steel_quantity * steel_kgCO2_kgunit;
     } else {
-      steel_total = steel_quantity*steel_kgCO2_kgunit*kg_per_lbs;
+      steel_total = steel_quantity * steel_kgCO2_kgunit * kg_per_lbs;
     }
-    if ({timber_unit} === "kg"){
-      timber_total = timber_quantity*timber_kgCO2_kgunit;
+
+    //let timber_total;
+    if ({ timber_unit } === "kg") {
+      timber_total = timber_quantity * timber_kgCO2_kgunit;
     } else {
-      steel_total = timber_quantity*timber_kgCO2_kgunit*kg_per_lbs;
+      timber_total = timber_quantity * timber_kgCO2_kgunit * kg_per_lbs;
     }
-    if ({glass_unit} === "kg"){
-      glass_total = glass_quantity*glass_kgCO2_kgunit;
+
+    //let glass_total;
+    if ({ glass_unit } === "kg") {
+      glass_total = glass_quantity * glass_kgCO2_kgunit;
     } else {
-      glass_total = glass_quantity*glass_kgCO2_kgunit*kg_per_lbs;
+      glass_total = glass_quantity * glass_kgCO2_kgunit * kg_per_lbs;
     }
-   
-  }, [inputs])
-  
-  useEffect(() => {
-    //total emissions
+
     total_emissions_all = glass_total + steel_total + conc_total + timber_total;
-  }, [conc_total, glass_total, steel_total, timber_total])
+
+    createResults();
+
+  });
+
+
+
+
   
-  
-  useEffect(() => {
-    //const createResults = () => {
-      const body = {
-        project_id: project_id_var,
-        creator_id: creator_id_var,
-        total_emissions: total_emissions_all,
-        concrete_emissions: conc_total,
-        glass_emissions: glass_total,
-        steel_emissions: steel_total,
-        timber_emissions: timber_total,
-        }
-        post("/api/results", body)
-      //};
-  }, [total_emissions_all])
+
+
 
 
   return (

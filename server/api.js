@@ -73,7 +73,7 @@ router.get("/project", (req, res) => {
 router.get("/inputs", (req, res) => {
   try {
     const project_id_var = req.query.project_id;
-    Input.find({ _id: project_id_var }).then((input) => res.send(input));
+    Input.find({ project_id: project_id_var }).then((input) => res.send(input));
   } catch (error) {
     console.log(error)
   };
