@@ -104,14 +104,24 @@ router.post("/inputs", (req, res) => {
     const newInput = new Input({
       project_id: req.body.project_id,
       creator_id: req.body.creator_id,
-      concrete_quantity: req.body.concrete_quantity,
-      concrete_unit: req.body.concrete_unit,
-      steel_quantity: req.body.steel_quantity,
-      steel_unit: req.body.steel_unit,
-      timber_quantity: req.body.timber_quantity,
-      timber_unit: req.body.timber_unit,
-      glass_quantity: req.body.glass_quantity,
-      glass_unit: req.body.glass_unit
+      materials: {
+        concrete: {
+          quantity: req.body.materials.concrete.quantity,
+          unit: req.body.materials.concrete.unit,
+        },
+        glass: {
+          quantity: req.body.materials.glass.quantity,
+          unit: req.body.materials.glass.unit,
+        },
+        steel: {
+          quantity: req.body.materials.steel.quantity,
+          unit: req.body.materials.steel.unit,
+        },
+        timber: {
+          quantity: req.body.materials.timber.quantity,
+          unit: req.body.materials.timber.unit,
+        }
+      }
         
     });
     newInput.save().then((input) => res.send(input));

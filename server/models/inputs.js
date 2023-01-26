@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const InputSchema = new mongoose.Schema({
     project_id: String,
     creator_id: String,
-    material: {
+    materials: {
         concrete: {
             quantity: String,
             unit: String
