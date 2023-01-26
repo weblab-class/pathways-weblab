@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { get } from "../../utilities";
+import { useLocation, useNavigate } from "@reach/router";
 
 import "./Card.css";
 
@@ -20,6 +21,11 @@ import "./Card.css";
 
 
 const Card = (props) => {
+  let navigate = useNavigate();
+  const navigateResults = () => {
+    navigate("/results", { state: { project_id: props.project_id, user_id: props.creator_id } })
+  }
+  
   return (
     <div className="flex-Container">
       <h1 className="Project-Name">{props.project_name}</h1>
@@ -30,7 +36,7 @@ const Card = (props) => {
           <div className="flex-items">{props.location_country}</div>
         </div>
         <img className="Display-Pic" src={props.picture} />
-        <Link to="/results/" className="SeeMore-Button">See More</Link>
+        <button type="button" className="SeeMore-Button"  onClick={() => { navigateResults() }}>See More</button>
       </div>
     </div>
 

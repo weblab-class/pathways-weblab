@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "@reach/router";
-import { get, post } from "../../utilities";
 import "../../utilities.css";
+import { get, post } from "../../utilities";
 import "./Results.css";
 import { Link } from "@reach/router";
 
@@ -20,6 +20,11 @@ let total_emissions_all;
 
 const Results = (props) => {
   const [inputs, setInputs] = useState([]);
+  const [totalEmissionsAll, setTotalEmissionsAll] = useState(null);
+  const [concTotal, setConcTotal] = useState(null);
+  const [steelTotal, setSteelTotal] = useState(null);
+  const [timberTotal, setTimberTotal] = useState(null);
+  const [glassTotal, setGlassTotal] = useState(null);
   const locationfc = useLocation();
   const project_id_var = locationfc.state.project_id;
   const creator_id_var = locationfc.state.user_id;
@@ -46,18 +51,22 @@ const Results = (props) => {
     post("/api/results", body)
   };
 
+
   getInputs().then(() => {
-    const conc_quantity= inputs.materials.concrete.quantity;
-    const conc_unit= inputs.materials.concrete.unit;
-    
-    const glass_quantity= inputs.materials.glass.quantity;
-    const glass_unit= inputs.materials.glass.unit;
 
-    const steel_quantity= inputs.materials.steel.quantity;
-    const steel_unit= inputs.materials.steel.unit;
 
-    const timber_quantity= inputs.materials.steel.quantity;
-    const timber_unit= inputs.materials.steel.unit;
+    const conc_quantity = inputs.materials.concrete.quantity;
+    const conc_unit = inputs.materials.concrete.unit;
+
+    console.log(conc_quantity);
+    const glass_quantity = inputs.materials.concrete.quantity;
+    const glass_unit = inputs.materials.concrete.unit;
+
+    const steel_quantity = inputs.materials.concrete.quantity;
+    const steel_unit = inputs.materials.concrete.unit;
+
+    const timber_quantity = inputs.materials.concrete.quantity;
+    const timber_unit = inputs.materials.concrete.unit;
 
     //let conc_total;
     if ({ conc_unit } === "kg") {
@@ -65,7 +74,7 @@ const Results = (props) => {
     } else {
       conc_total = conc_quantity * concrete_kgCO2_kgunit * kg_per_lbs;
     }
-    console.log(conc_total);
+
     //let steel_total;
     if ({ steel_unit } === "kg") {
       steel_total = steel_quantity * steel_kgCO2_kgunit;
@@ -89,11 +98,20 @@ const Results = (props) => {
 
     total_emissions_all = glass_total + steel_total + conc_total + timber_total;
 
+    setTotalEmissionsAll(total_emissions_all);
+    setConcTotal(conc_total);
+    setGlassTotal(glass_total);
+    setTimberTotal(timber_total);
+    setSteelTotal(steel_total);
+
     createResults();
 
+    return (total_emissions_all);
+
+    
   });
 
-
+  
 
   return (
     <div>
@@ -103,11 +121,11 @@ const Results = (props) => {
           <h1>Results</h1>
           <p> This is the results section. </p>
           <Link to="/projects/" className="Go-Back-Button">Back</Link>
-          <div>Total Emissions: {total_emissions_all} kg CO2</div>
-          <div className="Each-Material">Concrete-Emissions: {conc_total} kg CO2</div>
-          <div className="Each-Material">Glass-Emissions: {glass_total} kg CO2</div>
-          <div className="Each-Material">Steel-Emissions: {steel_total} kg CO2</div>
-          <div className="Each-Material">Timber-Emissions: {timber_total} kg CO2</div>
+          <div>Total Emissions: {totalEmissionsAll} kg CO2</div>
+          <div className="Each-Material">Concrete-Emissions: {concTotal} kg CO2</div>
+          <div className="Each-Material">Glass-Emissions: {glassTotal} kg CO2</div>
+          <div className="Each-Material">Steel-Emissions: {steelTotal} kg CO2</div>
+          <div className="Each-Material">Timber-Emissions: {timberTotal} kg CO2</div>  
         </div>
         :
         <h1>Please log in!</h1>}

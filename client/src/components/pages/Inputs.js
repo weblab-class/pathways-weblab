@@ -65,7 +65,7 @@ const Inputs = (props) => {
     setGlassQuantityUnit(event.target.value);
   };
 
-  // Create a project
+  // Create a input
   let navigate = useNavigate();
   const createInput = () => {
     const body = {

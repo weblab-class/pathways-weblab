@@ -5,19 +5,19 @@ const InputSchema = new mongoose.Schema({
     creator_id: String,
     materials: {
         concrete: {
-            quantity: String,
+            quantity: Number,
             unit: String
         },
         steel: {
-            quantity: String,
+            quantity: Number,
             unit: String
         },
         timber: {
-            quantity: String,
+            quantity: Number,
             unit: String
         },
         glass: {
-            quantity: String,
+            quantity: Number,
             unit: String
         },
     }
