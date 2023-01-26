@@ -65,7 +65,7 @@ const Results = (props) => {
     } else {
       conc_total = conc_quantity * concrete_kgCO2_kgunit * kg_per_lbs;
     }
-
+    console.log(conc_total);
     //let steel_total;
     if ({ steel_unit } === "kg") {
       steel_total = steel_quantity * steel_kgCO2_kgunit;
