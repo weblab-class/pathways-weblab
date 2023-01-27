@@ -43,6 +43,11 @@ const Results = (props) => {
     post("/api/results", body);
   };
 
+  const formatter = new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+
   const calculateResults = (inputs) => {
     get("/api/results", { project_id: project_id_var }).then((resultsObj) => {
       if (resultsObj[0]) {
@@ -53,14 +58,14 @@ const Results = (props) => {
         const conc_quantity = inputs.materials.concrete.quantity;
         const conc_unit = inputs.materials.concrete.unit;
 
-        const glass_quantity = inputs.materials.concrete.quantity;
-        const glass_unit = inputs.materials.concrete.unit;
+        const glass_quantity = inputs.materials.glass.quantity;
+        const glass_unit = inputs.materials.glass.unit;
 
-        const steel_quantity = inputs.materials.concrete.quantity;
-        const steel_unit = inputs.materials.concrete.unit;
+        const steel_quantity = inputs.materials.steel.quantity;
+        const steel_unit = inputs.materials.steel.unit;
 
-        const timber_quantity = inputs.materials.concrete.quantity;
-        const timber_unit = inputs.materials.concrete.unit;
+        const timber_quantity = inputs.materials.timber.quantity;
+        const timber_unit = inputs.materials.timber.unit;
 
         //let conc_total;
         if ({ conc_unit } === "kg") {
@@ -134,11 +139,11 @@ const Results = (props) => {
             <p> This is the results section. </p>
             <Link to="/projects/" className="Go-Back-Button">Back</Link>
             <button onClick={() => { goBackToInput() }}>Change Inputs</button>
-            <div>Total Emissions: {results.total_emissions} kg CO2</div>
-            <div className="Each-Material">Concrete-Emissions: {results.concrete_emissions} kg CO2</div>
-            <div className="Each-Material">Glass-Emissions: {results.glass_emissions} kg CO2</div>
-            <div className="Each-Material">Steel-Emissions: {results.steel_emissions} kg CO2</div>
-            <div className="Each-Material">Timber-Emissions: {results.timber_emissions} kg CO2</div>
+            <div>Total Emissions: {formatter.format(results.total_emissions)} kg CO2</div>
+            <div className="Each-Material">Concrete-Emissions: {formatter.format(results.concrete_emissions)} kg CO2</div>
+            <div className="Each-Material">Glass-Emissions: {formatter.format(results.glass_emissions)} kg CO2</div>
+            <div className="Each-Material">Steel-Emissions: {formatter.format(results.steel_emissions)} kg CO2</div>
+            <div className="Each-Material">Timber-Emissions: {formatter.format(results.timber_emissions)} kg CO2</div>
           </div>
           :
           <h1>Please log in!</h1>}

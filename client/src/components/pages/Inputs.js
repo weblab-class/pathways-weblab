@@ -44,7 +44,10 @@ const Inputs = (props) => {
 
   // called whenever the user types in the concrete box
   const handleConcreteQuantityChange = (event) => {
-    setConcreteQuantity(event.target.value);
+    let val = event.target.value;
+    if (val >= 0) {
+      setConcreteQuantity(event.target.value);
+    }
   };
 
   // called whenever the user types in the concrete box
@@ -54,7 +57,10 @@ const Inputs = (props) => {
 
   // called whenever the user types in the steel box
   const handleSteelQuantityChange = (event) => {
-    setSteelQuantity(event.target.value);
+    let val = event.target.value;
+    if (val >= 0) {
+      setSteelQuantity(event.target.value);
+    }
   };
 
   // called whenever the user types in the concrete box
@@ -64,7 +70,10 @@ const Inputs = (props) => {
 
   // called whenever the user types in the timber box
   const handleTimberQuantityChange = (event) => {
-    setTimberQuantity(event.target.value);
+    let val = event.target.value;
+    if (val >= 0) {
+      setTimberQuantity(event.target.value);
+    }
   };
 
   // called whenever the user types in the timber unit box
@@ -74,7 +83,10 @@ const Inputs = (props) => {
 
   // called whenever the user types in the glass box
   const handleGlassQuantityChange = (event) => {
-    setGlassQuantity(event.target.value);
+    let val = event.target.value;
+    if (val >= 0) {
+      setGlassQuantity(event.target.value);
+    }
   };
 
   // called whenever the user types in the glass unit box
