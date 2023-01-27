@@ -95,9 +95,9 @@ const Projects = (props) => {
         project_type={projectObj.project_type}
         creator_id={projectObj.creator_id}
         picture={projectObj.picture}
-        location_city= {projectObj.location_city}
-        location_country= {projectObj.location_country}
-        
+        location_city={projectObj.location_city}
+        location_country={projectObj.location_country}
+
       />
     ))
   } else {
@@ -185,9 +185,10 @@ const Projects = (props) => {
             <h1 className="ProjTitle">Templates</h1>
             <div className="HorizontalLine"></div>
             <Card
-              project_name={"Daniela's Test"}
-              location_city= {"Havana"}
-              location_country= {"Cuba"}              
+              project_name="Template"
+              project_id="63d330ca1007a20f205f9d61"
+              location_city={"Havana"}
+              location_country={"Cuba"}
               picture={"https://cdn-images.article.com/products/SKU379A/2890x1500/image81730.jpg"}
             />
           </div>
@@ -196,9 +197,11 @@ const Projects = (props) => {
             <h1 className="ProjTitle">Templates</h1>
             <div className="HorizontalLine"></div>
             <Card
-              project_name={"Daniela's Test"}
-              location_city= {"Havana"}
-              location_country= {"Cuba"}              
+              project_name="Template"
+              project_id="63d330ca1007a20f205f9d61"
+              creator_id="TEMPLATE"
+              location_city={"Havana"}
+              location_country={"Cuba"}
               picture={"https://cdn-images.article.com/products/SKU379A/2890x1500/image81730.jpg"}
             />
           </div>
@@ -206,5 +209,5 @@ const Projects = (props) => {
       }
     </div>
   )
-    };
+};
 export default Projects;

@@ -21,8 +21,25 @@ const Inputs = (props) => {
   useEffect(() => {
     get("/api/project", { project_id: locationfc.state.project_id }).then((projectObj) => {
       setProject(projectObj[0])
-
     });
+    get("/api/inputs", { project_id: locationfc.state.project_id }).then((inputObj) => {
+      if (inputObj) {
+        console.log(inputObj);
+
+        setConcreteQuantity(inputObj[0].materials.concrete.quantity);
+        setConcreteQuantityUnit(inputObj[0].materials.concrete.unit);
+        setSteelQuantity(inputObj[0].materials.steel.quantity);
+        setSteelQuantityUnit(inputObj[0].materials.steel.unit);
+        setTimberQuantity(inputObj[0].materials.timber.quantity);
+        setTimberQuantityUnit(inputObj[0].materials.timber.unit);
+        setGlassQuantity(inputObj[0].materials.glass.quantity);
+        setGlassQuantityUnit(inputObj[0].materials.glass.unit);
+        console.log(steelQuantity);
+
+      }
+      else {
+      }
+    })
   }, []);
 
   // called whenever the user types in the concrete box
@@ -89,7 +106,7 @@ const Inputs = (props) => {
           unit: glassQuantityUnit
         }
       }
-        
+
     };
     post("/api/inputs", body).then((input) => {
       navigate("/results", { state: { project_id: input.project_id, user_id: input.creator_id } })
@@ -109,7 +126,7 @@ const Inputs = (props) => {
               <h1>{project.project_name}</h1>
               <h2>This project is a {project.project_type}</h2>
               <h2>{project.location_city}</h2>
-              <h2>{project.location_country}</h2> 
+              <h2>{project.location_country}</h2>
               <div className="HorizontalLine"></div>
               <h2> Inputs </h2>
 
@@ -171,7 +188,7 @@ const Inputs = (props) => {
               </div>
 
               <div>Glass</div>
-              <input type="number" min="0" 
+              <input type="number" min="0"
                 name="Glass Input"
                 id="favourite"
                 placeholder="Glass quantity"

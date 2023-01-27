@@ -122,7 +122,7 @@ router.post("/inputs", (req, res) => {
           unit: req.body.materials.timber.unit,
         }
       }
-        
+
     });
     newInput.save().then((input) => res.send(input));
   } catch (error) {
@@ -137,7 +137,7 @@ router.post("/inputs", (req, res) => {
 router.get("/results", (req, res) => {
   try {
     const project_id_var = req.query.project_id
-    Result.find({ _id: project_id_var }).then((result) => res.send(result));
+    Result.find({ project_id: project_id_var }).then((result) => res.send(result));
   } catch (error) {
     console.log(error)
   };
