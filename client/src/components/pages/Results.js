@@ -20,11 +20,6 @@ let total_emissions_all;
 
 const Results = (props) => {
   const [results, setResults] = useState(null);
-  const [totalEmissionsAll, setTotalEmissionsAll] = useState(null);
-  const [concTotal, setConcTotal] = useState(null);
-  const [steelTotal, setSteelTotal] = useState(null);
-  const [timberTotal, setTimberTotal] = useState(null);
-  const [glassTotal, setGlassTotal] = useState(null);
   const locationfc = useLocation();
   const project_id_var = locationfc.state.project_id;
   const creator_id_var = locationfc.state.user_id;
@@ -52,9 +47,7 @@ const Results = (props) => {
     get("/api/results", { project_id: project_id_var }).then((resultsObj) => {
       if (resultsObj[0]) {
         setResults(resultsObj[0]);
-        console.log("hey");
       } else {
-        console.log("hey!!!");
         const conc_quantity = inputs.materials.concrete.quantity;
         const conc_unit = inputs.materials.concrete.unit;
 
@@ -97,11 +90,7 @@ const Results = (props) => {
         }
 
         total_emissions_all = glass_total + steel_total + conc_total + timber_total;
-        setTotalEmissionsAll(total_emissions_all);
-        setConcTotal(conc_total);
-        setGlassTotal(glass_total);
-        setTimberTotal(timber_total);
-        setSteelTotal(steel_total);
+        
 
         createResults();
 

@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import { GoogleOAuthProvider, GoogleLogin, googleLogout } from "@react-oauth/google";
 
 import "./NavBar.css";
+import logo from "../../public/logo.jpg";
 
 // This identifies your web application to Google's authentication service
 const GOOGLE_CLIENT_ID = "765537002064-fhpam2p9f5j2fq2725v6racrpi67r2pc.apps.googleusercontent.com";
@@ -13,9 +14,12 @@ const GOOGLE_CLIENT_ID = "765537002064-fhpam2p9f5j2fq2725v6racrpi67r2pc.apps.goo
 const NavBar = (props) => {
   return (
     <nav className="NavBar-container">
+      <div className="logo-container">
+      <img className="logo" src={logo} alt="Logo"></img>
       <Link to="/" className="NavBar-title u-inlineBlock">
         PATHWAYS
       </Link>
+      </div>
       <div className="NavBar-linkContainer">
         <Link to="/" className="NavBar-link">
           Home

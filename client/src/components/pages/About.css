@@ -1,36 +1,63 @@
-.about-page-container {
+.AboutBox {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(6, 154, 119);
-  color: #fff;
-  padding: 3rem;
+  
 }
 
-.about-page-title {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
+.About-Section {
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 0px;
+
+}
+
+.About-page-pic {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+  padding: 30px;
+  margin-bottom: 80px;
+}
+
+
+.HorizontalLine {
+  height: 50px;
+  background: white;
+}
+
+.AboutTitle { 
+  color: white;
 }
 
 .about-page-text {
-  font-size: 1.5rem;
+  font-size: 20px;
   line-height: 1.5;
-  text-align: center;
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 2.2rem;
+  text-align: justify;
+  width: 90%;
+  color: #fff;
+  margin-right: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
-  .about-page-container {
-    flex-direction: column;
-  }
-  .about-page-title {
-    font-size: 2rem;
-  }
-  .about-page-text {
-    font-size: 1.2rem;
-  }
+.CO2 {
+  width:300px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 50px;
+  flex-basis: 20%;
+
 }
+
+/* Media Query*/
+@media (min-width: 320px) and (max-width: 900px){
+  .About-page-pic{
+    flex-wrap: wrap;
+  }
+  }
+
+
+

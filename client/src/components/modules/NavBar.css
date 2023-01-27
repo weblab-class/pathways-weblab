@@ -8,9 +8,26 @@
   top: 0;
 }
 
+.logo-container {
+  padding: var(--s) var(--l);
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  width: 40px;
+  margin-right: 2px;
+}
+
 .NavBar-title {
   color: var(--black);
   font-size: 32px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .NavBar-linkContainer {
