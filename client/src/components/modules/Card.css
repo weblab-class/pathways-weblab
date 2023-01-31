@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   flex-grow: 0;
-  max-height: 68%;
+  height: 68%;
   border-radius: 8px;
   }
   
@@ -84,7 +84,7 @@
   font-size: 16px;
   border-radius: 16px;
   margin-top: 5px;
-  padding: 12px;
+  padding: 12px 16px;
   flex-basis: 10%;
   flex-grow: 0;
   min-width: 0;

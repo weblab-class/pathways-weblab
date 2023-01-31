@@ -60,14 +60,17 @@ const Projects = (props) => {
     setProjectPicture(event.target.value);
   };
 
+
   // called whenever the user changes the project type
   const handleProjectTypeChange = (event) => {
     setProjectType(event.target.value)
   }
 
+
+
   // Create a project
   let navigate = useNavigate();
-  const createProject = () => {
+  const createProject = () => { 
     const body = {
       project_name: projectName,
       project_type: projectType,

@@ -20,6 +20,7 @@ let total_emissions_all;
 
 const Results = (props) => {
   const [results, setResults] = useState(null);
+  const [project, setProject] = useState([]);
   const locationfc = useLocation();
   const project_id_var = locationfc.state.project_id;
   const creator_id_var = locationfc.state.user_id;
@@ -119,43 +120,79 @@ const Results = (props) => {
   }, []);
 
 
+  // Get the project information
+  useEffect(() => {
+    get("/api/project", { project_id: locationfc.state.project_id }).then((projectObj) => {
+      setProject(projectObj[0])
+    }); })
+
+
   return (
     <div>
       {
         (props.userId && results) ?
-          <div>
-            <h1>Results</h1>
-            <p> This is the results section. </p>
-            <Link to="/projects/" className="Go-Back-Button">Back</Link>
-            <button onClick={() => { goBackToInput() }}>Change Inputs</button>
-            <div>Total Emissions: {formatter.format(results.total_emissions)} kg CO2</div>
-            <div className="Each-Material">Concrete-Emissions: {formatter.format(results.concrete_emissions)} kg CO2</div>
-            <div className="Each-Material">Glass-Emissions: {formatter.format(results.glass_emissions)} kg CO2</div>
-            <div className="Each-Material">Steel-Emissions: {formatter.format(results.steel_emissions)} kg CO2</div>
-            <div className="Each-Material">Timber-Emissions: {formatter.format(results.timber_emissions)} kg CO2</div>
+          <div className="ResultsBox">
+            <h1 className = "ResultsHeader">Results</h1>
+            <div className="HorizontalLine"></div>
+            <div className="buttonsResults">
+              <Link to="/projects/" className="Go-Back-Button">Back to Projects</Link>
+              <button className="Go-Back-Button" onClick={() => { goBackToInput() }}>Change Inputs</button>
+            </div>
+            <div className="Info">
+              <div> <img className="Display-Pic" src={project.picture} /></div>
+              <div className = "Data">
+                <h1>{project.project_name}</h1>
+                <h2>Type: {project.project_type}</h2>
+                <div><strong>Total Emissions:</strong> {formatter.format(results.total_emissions)} kg CO2</div>
+                <div className="Each-Material"> <strong>Concrete-Emissions:</strong> {formatter.format(results.concrete_emissions)} kg CO2</div>
+                <div className="Each-Material"><strong>Glass-Emissions: </strong>{formatter.format(results.glass_emissions)} kg CO2</div>
+                <div className="Each-Material"><strong>Steel-Emissions:</strong> {formatter.format(results.steel_emissions)} kg CO2</div>
+                <div className="Each-Material"><strong>Timber-Emissions:</strong> {formatter.format(results.timber_emissions)} kg CO2</div>
+              </div>
+            </div>
           </div>
           : (props.userId && project_id_var==="63d330ca1007a20f205f9d61") ?
-          <div>
-            <h1>Template Results</h1>
-            <p> This is the Template Results section. </p>
-            <Link to="/projects/" className="Go-Back-Button">Back</Link>
-            <div>Total Emissions: 0 kg CO2</div>
-            <div className="Each-Material">Concrete-Emissions: 0 kg CO2</div>
-            <div className="Each-Material">Glass-Emissions: 0 kg CO2</div>
-            <div className="Each-Material">Steel-Emissions: 0 kg CO2</div>
-            <div className="Each-Material">Timber-Emissions: 0 kg CO2</div>
+          <div className="ResultsBox">
+            <h1 className = "ResultsHeader">Template Results</h1>
+            <div className="HorizontalLine"></div>
+            <div className="buttonsResults">
+              <Link to="/projects/" className="Go-Back-Button">Back to Projects</Link>
+            </div>
+            <div className="Info">
+            <div> <img className="Display-Pic" src="https://cdn-images.article.com/products/SKU379A/2890x1500/image81730.jpg" /></div>
+              <div className = "Data">
+                <h1>Template</h1>
+                <h2>Type: Table</h2>
+                <div>Total Emissions: 0 kg CO2</div>
+                <div className="Each-Material">Concrete-Emissions: 0 kg CO2</div>
+                <div className="Each-Material">Glass-Emissions: 0 kg CO2</div>
+                <div className="Each-Material">Steel-Emissions: 0 kg CO2</div>
+                <div className="Each-Material">Timber-Emissions: 0 kg CO2</div>
+              </div>
+            </div>
           </div>
           : (props.userId) ?
           <div>
-            <h1>Results</h1>
-            <p> This is the results section. </p>
-            <Link to="/projects/" className="Go-Back-Button">Back</Link>
-            <button onClick={() => { goBackToInput() }}>Change Inputs</button>
-            <div>Total Emissions: 0 kg CO2</div>
-            <div className="Each-Material">Concrete-Emissions: 0 kg CO2</div>
-            <div className="Each-Material">Glass-Emissions: 0 kg CO2</div>
-            <div className="Each-Material">Steel-Emissions: 0 kg CO2</div>
-            <div className="Each-Material">Timber-Emissions: 0 kg CO2</div>
+            <div className="ResultsBox">
+              <h1 className = "ResultsHeader">Template Results</h1>
+              <div className="HorizontalLine"></div>
+              <div className="buttonsResults">
+                <Link to="/projects/" className="Go-Back-Button">Back to Projects</Link>
+                <button className="Go-Back-Button" onClick={() => { goBackToInput() }}>Change Inputs</button>
+              </div>
+              <div className="Info">
+              <div> <img className="Display-Pic" src={project.picture} /></div>
+                <div className = "Data">
+                  <h1>{project.project_name}</h1>
+                  <h2>Type: {project.project_type}</h2>
+                  <div>Total Emissions: 0 kg CO2</div>
+                  <div className="Each-Material">Concrete-Emissions: 0 kg CO2</div>
+                  <div className="Each-Material">Glass-Emissions: 0 kg CO2</div>
+                  <div className="Each-Material">Steel-Emissions: 0 kg CO2</div>
+                  <div className="Each-Material">Timber-Emissions: 0 kg CO2</div>
+                </div>
+            </div>
+          </div>
           </div>
           :
           <h1>Please log in!</h1>}

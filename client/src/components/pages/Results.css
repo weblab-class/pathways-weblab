@@ -1,14 +1,80 @@
 .Go-Back-Button {
-    background-color: rgb(125, 203, 176);
+    background-color: white;
     color: black;
     border: 3px solid black;
     font-size: 16px;
     border-radius: 16px;
-    padding: 12px;
+    padding: 16px 32px;
+    text-decoration: none;
     }
     
   
 .Go-Back-Button:hover {
-    background-color: rgb(0, 85, 56);
+    background-color: rgb(0, 0, 0);
     color: white; 
     }
+
+.HorizontalLine {
+    height: 2px;
+    background: white;
+}
+    
+.ResultsHeader {
+    color: white;
+}
+
+.ResultsBox {
+    margin: 50px;
+}
+
+.buttonsResults {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Data {
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: center;
+  width: 90%;
+  color: black;
+  padding: 20px;
+  flex-basis:100%;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.Info {
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
+  padding: 30px;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.Display-Pic {
+    max-width: 80%;
+    background-color: white;
+    border-radius: 20px;
+    flex-basis:20%;
+  
+  }
+  
+  /* Media Query*/
+@media (min-width: 320px) and (max-width: 900px){
+   .Info{
+     flex-wrap: wrap;
+     flex-direction: column-reverse;
+   }
+   }
