@@ -11,8 +11,27 @@
     color: white;
 }
 
+.startProject {
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: justify;
+    width: 90%;
+    color: #fff;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 100px;
+  }
+
 .Start-Project {
     color: white;
+}
+
+.CardsList {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .Create-Project-Button {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../../utilities.css";
 import "./About.css";
+import { Link } from "@reach/router";
 
 import carbonDioxide from "../../public/carbonDioxide.jpg";
 import earthDay from "../../public/earthDay.jpg";
@@ -24,7 +25,7 @@ const About = (props) => {
         </div>
       </div>
       <div className="About-Section">
-        <h1 className="AboutTitle">Our Carbon Emissions Calculator</h1>
+        <Link to="/projects/" className="AboutTitle1">Our Carbon Emissions Calculator</Link>
         <div className="HorizontalLine"></div>
         <div className="About-page-pic">
           <p className="about-page-text">

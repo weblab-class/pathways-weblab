@@ -181,7 +181,7 @@ const Projects = (props) => {
             </div>
             <h1 className="ProjTitle">My Projects</h1>
             <div className="HorizontalLine"></div>
-            <div>{myProjectsList}</div>
+            <div className = "CardsList">{myProjectsList}</div>
             <h1 className="ProjTitle">Templates</h1>
             <div className="HorizontalLine"></div>
             <Card
@@ -189,11 +189,15 @@ const Projects = (props) => {
               project_id="63d330ca1007a20f205f9d61"
               location_city={"Havana"}
               location_country={"Cuba"}
+              project_type = {"Table"}
               picture={"https://cdn-images.article.com/products/SKU379A/2890x1500/image81730.jpg"}
             />
           </div>
           :
           <div className="ProjBox">
+            <h1 className="ProjTitle">My Projects</h1>
+            <div className="HorizontalLine"></div>
+            <div className="startProject">Login to create a project!</div>
             <h1 className="ProjTitle">Templates</h1>
             <div className="HorizontalLine"></div>
             <Card
@@ -202,6 +206,7 @@ const Projects = (props) => {
               creator_id="TEMPLATE"
               location_city={"Havana"}
               location_country={"Cuba"}
+              project_type = {"Table"}
               picture={"https://cdn-images.article.com/products/SKU379A/2890x1500/image81730.jpg"}
             />
           </div>

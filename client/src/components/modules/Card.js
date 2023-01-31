@@ -32,11 +32,15 @@ const Card = (props) => {
       <div className="Card-Container">
 
         <div className="Project-Display">
-          <div className="flex-items">{props.location_city}</div>
-          <div className="flex-items">{props.location_country}</div>
+          <div className="flex-items">Type: {props.project_type}</div>
+          <div className="flex-items">{props.location_city}, {props.location_country}</div>
         </div>
-        <img className="Display-Pic" src={props.picture} />
+        <div className="Display-Pic">
+          <img className="Display-Pic1" src={props.picture} />
+        </div>
+        <div className="buttonDiv">
         <button type="button" className="SeeMore-Button"  onClick={() => { navigateResults() }}>See More</button>
+        </div>
       </div>
     </div>
 
