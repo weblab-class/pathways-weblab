@@ -20,7 +20,7 @@ const customStyles = {
     borderRadius: "25px",
     backgroundColor: "white",
     width: "25rem",
-    height: 400,
+    height: 420,
   },
 };
 
@@ -181,14 +181,21 @@ const Projects = (props) => {
                 />
               </div>
               <div className="delete-create-buttons">
-                <button onClick={() => setModalOpen(false)}>Delete</button>
-                <button
-                  onClick={() => {
-                    createProject();
-                  }}
-                >
-                  Create
-                </button>
+                <div>
+                  <button className="individual-button" onClick={() => setModalOpen(false)}>
+                    Delete
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className="individual-button"
+                    onClick={() => {
+                      createProject();
+                    }}
+                  >
+                    Create
+                  </button>
+                </div>
                 {/* <Link to="/inputs/" className="Create-Final" onClick={() => { createProject() }}>Create</Link>*/}
               </div>
             </Modal>
