@@ -57,7 +57,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-top: 2px;
+  max-width: 50%;
 }
+
 
 .Display-Pic {
   display:flex;
