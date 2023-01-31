@@ -32,7 +32,7 @@ const Card = (props) => {
       <div className="Card-Container">
 
         <div className="Project-Display">
-          <div className="flex-items">Type: {props.project_type}</div>
+          <div className="flex-items">{props.project_type}</div>
           <div className="flex-items">{props.location_city}, {props.location_country}</div>
         </div>
         <div className="Display-Pic">

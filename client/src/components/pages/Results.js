@@ -134,6 +134,29 @@ const Results = (props) => {
             <div className="Each-Material">Steel-Emissions: {formatter.format(results.steel_emissions)} kg CO2</div>
             <div className="Each-Material">Timber-Emissions: {formatter.format(results.timber_emissions)} kg CO2</div>
           </div>
+          : (props.userId && project_id_var==="63d330ca1007a20f205f9d61") ?
+          <div>
+            <h1>Template Results</h1>
+            <p> This is the Template Results section. </p>
+            <Link to="/projects/" className="Go-Back-Button">Back</Link>
+            <div>Total Emissions: 0 kg CO2</div>
+            <div className="Each-Material">Concrete-Emissions: 0 kg CO2</div>
+            <div className="Each-Material">Glass-Emissions: 0 kg CO2</div>
+            <div className="Each-Material">Steel-Emissions: 0 kg CO2</div>
+            <div className="Each-Material">Timber-Emissions: 0 kg CO2</div>
+          </div>
+          : (props.userId) ?
+          <div>
+            <h1>Results</h1>
+            <p> This is the results section. </p>
+            <Link to="/projects/" className="Go-Back-Button">Back</Link>
+            <button onClick={() => { goBackToInput() }}>Change Inputs</button>
+            <div>Total Emissions: 0 kg CO2</div>
+            <div className="Each-Material">Concrete-Emissions: 0 kg CO2</div>
+            <div className="Each-Material">Glass-Emissions: 0 kg CO2</div>
+            <div className="Each-Material">Steel-Emissions: 0 kg CO2</div>
+            <div className="Each-Material">Timber-Emissions: 0 kg CO2</div>
+          </div>
           :
           <h1>Please log in!</h1>}
     </div>
