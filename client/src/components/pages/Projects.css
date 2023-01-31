@@ -1,63 +1,111 @@
 .HorizontalLine {
-    height: 2px;
-    background: white;
+  height: 3.5px;
+  background: white;
 }
 
 .ProjBox {
-    margin: 50px;
+  margin: 50px;
 }
 
 .ProjTitle {
-    color: white;
+  color: white;
 }
 
 .startProject {
-    font-size: 20px;
-    line-height: 1.5;
-    text-align: justify;
-    width: 90%;
-    color: #fff;
-    margin-right: 30px;
-    margin-top: 10px;
-    margin-bottom: 100px;
-  }
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: justify;
+  width: 90%;
+  color: #fff;
+  margin-right: 30px;
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
 
 .Start-Project {
-    color: white;
+  color: white;
 }
 
 .CardsList {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .Create-Project-Button {
-    background-color: white;
-    color: black;
-    border: 3px solid black;
-    font-size: 16px;
-    border-radius: 16px;
-    padding: 12px 24px;
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  font-size: 16px;
+  border-radius: 16px;
+  padding: 12px 24px;
 }
 
 .Create-Project-Button:hover {
-    background-color: rgb(0, 0, 0);
-    color: white; 
-  }
+  background-color: rgb(0, 0, 0);
+  color: white;
+  cursor: pointer;
+}
 
 .Create-Final {
-    background-color: rgb(125, 203, 176);
-    color: black;
-    border: 3px solid black;
-    font-size: 16px;
-    border-radius: 16px;
-    padding: 3px;
+  background-color: rgb(125, 203, 176);
+  color: black;
+  border: 3px solid black;
+  font-size: 16px;
+  border-radius: 16px;
+  padding: 3px;
 }
 
 .Create-Final:hover {
-    background-color: rgb(0, 85, 56);
-    color: white; 
-  }
+  background-color: rgb(0, 85, 56);
+  color: white;
+}
+
+.modal {
+  position: relative;
+  border: 20px;
+  border-color: black;
+}
+.exit-button {
+  position: absolute;
+  margin: 10px 10px;
+  top: 0;
+  right: 0;
+  text-align: right;
+  font-size: 1.25rem;
+  background: transparent;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.6rem;
+  border: 0;
+  outline: none;
+}
+.exit-button:hover {
+  color: red;
+}
+.new-project-header {
+  font-size: 30px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 2px;
+  color: rgb(0, 85, 56);
+  font-family: "Sora", bold;
+}
+.input-project-headers {
+  padding: 5px;
+  font-size: 16px;
+  align-items: center;
+  margin-left: 1.75rem;
+  color: rgb(0, 85, 56);
+}
+
+.input-project-user {
+  margin-left: 2rem;
+}
+
+.delete-create-buttons {
+  margin-left: 2rem;
+}
