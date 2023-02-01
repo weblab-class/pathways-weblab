@@ -4,12 +4,12 @@
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  height:auto;
-  max-width: 90%;
+  height: auto;
+  max-height: 60%;
+  max-width: 50%;
 }
 
 .CO2-Title {
-  
   margin-left: 200px;
   margin-top: 50px;
   margin-right: 200px;
@@ -20,5 +20,21 @@
   color: white;
   font-style: italic;
 
-  text-align:center;
+  text-align: center;
+}
+
+.try-calculator {
+  text-decoration: none;
+  margin-left: 200px;
+  margin-top: 50px;
+  margin-right: 200px;
+  margin-bottom: 50px;
+  padding: 30px;
+  font-size: 30px;
+  border-radius: 45px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+  text-align: center;
 }

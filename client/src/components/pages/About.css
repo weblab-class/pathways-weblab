@@ -1,7 +1,6 @@
 .AboutBox {
   display: flex;
   flex-wrap: wrap;
-  
 }
 
 .About-Section {
@@ -9,7 +8,6 @@
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 0px;
-
 }
 
 .About-page-pic {
@@ -22,13 +20,12 @@
   margin-bottom: 80px;
 }
 
-
 .HorizontalLine {
   height: 50px;
   background: white;
 }
 
-.AboutTitle { 
+.AboutTitle {
   color: white;
   display: block;
   font-size: 2em;
@@ -40,7 +37,7 @@
   text-decoration: none;
 }
 
-.AboutTitle1 { 
+.AboutTitle1 {
   color: white;
   display: block;
   font-size: 2em;
@@ -54,7 +51,6 @@
 
 .AboutTitle1:hover {
   color: black;
-  
 }
 
 .about-page-text {
@@ -65,24 +61,20 @@
   color: #fff;
   margin-right: 30px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 80px;
 }
 
 .CO2 {
-  width:300px;
+  width: 300px;
   padding: 16px;
   background-color: white;
   border-radius: 50px;
   flex-basis: 20%;
-
 }
 
 /* Media Query*/
-@media (min-width: 320px) and (max-width: 900px){
-  .About-page-pic{
+@media (min-width: 320px) and (max-width: 900px) {
+  .About-page-pic {
     flex-wrap: wrap;
   }
-  }
-
-
-
+}
