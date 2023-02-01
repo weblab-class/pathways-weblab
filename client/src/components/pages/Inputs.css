@@ -1,0 +1,134 @@
+.HorizontalLine {
+  height: 2px;
+  background: white;
+}
+  
+.InputsHeader {
+  color: white;
+}
+
+.InputBox {
+  margin: 50px;
+}
+.input-data {
+  padding: 2px;
+}
+
+.input-headers {
+  padding: 5px;
+  font-size: 20px;
+  padding-bottom: 1px;
+  margin-left: 0.05em;
+  color: black;
+  font-family: "Sora", bold;
+}
+
+.input-units {
+  padding: 15px;
+  margin: auto;
+}
+
+.Go-Back-Button {
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  font-size: 16px;
+  border-radius: 16px;
+  padding: 16px 32px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  }
+
+.Go-Back-Button:hover {
+    background-color: rgb(0, 0, 0);
+    color: white; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  }
+
+.Go-Back-Button1 {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border: 3px solid black;
+    font-size: 16px;
+    border-radius: 16px;
+    padding: 16px 32px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    }
+  
+.Go-Back-Button1:hover {
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0); 
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    }
+
+.buttonInputs {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+  }
+
+.allInfo {
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
+  padding: 30px;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  }
+  
+.Data {
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+    width: 90%;
+    color: black;
+    padding: 20px;
+    flex-basis:100%;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+.Display-Pic {
+    max-width: 80%;
+    background-color: white;
+    border-radius: 20px;
+    flex-basis:10%;
+  
+  }
+  
+  /* Media Query*/
+@media (min-width: 320px) and (max-width: 900px){
+   .allInfo{
+     flex-wrap: wrap;
+     flex-direction: column-reverse;
+   }
+   }
+
+
+.materialList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 20%;
+}
+
+.material-container {
+  margin-left: 5px;
+  margin-right:5px;
+}

@@ -1,8 +1,50 @@
 /* Fill me in :) */
 .Map {
   display: block;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  height:auto;
-  max-width: 100%;
+  height: auto;
+  max-height: 60%;
+  max-width: 50%;
+}
+
+.CO2-Title {
+  display:flex;
+  margin-left: 200px;
+  margin-top: 50px;
+  margin-right: 200px;
+  margin-bottom: 50px;
+  padding: 30px;
+  font-size: 30px;
+  background-color: black;
+  color: white;
+  font-style: italic;
+  justify-content: center;
+  text-align: center;
+}
+
+.try-calculator {
+  display: flex;
+  margin-left: 200px;
+  margin-top: 50px;
+  margin-right: 200px;
+  margin-bottom: 50px;
+  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+}
+
+.projects-link {
+  color: white;
+  text-decoration: none;
+  background-color: black;
+  font-size: 30px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.projects-link:hover {
+  color: white;
+  text-decoration: underline;
 }

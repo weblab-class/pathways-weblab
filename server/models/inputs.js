@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 const InputSchema = new mongoose.Schema({
-    input_id: String,
+    project_id: String,
+    creator_id: String,
     materials: {
         concrete: {
             quantity: Number,
@@ -10,9 +11,18 @@ const InputSchema = new mongoose.Schema({
         steel: {
             quantity: Number,
             unit: String
-        }
+        },
+        timber: {
+            quantity: Number,
+            unit: String
+        },
+        glass: {
+            quantity: Number,
+            unit: String
+        },
     }
-});
+    
+})
 
 // compile model from schema
 module.exports = mongoose.model("input", InputSchema);

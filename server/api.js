@@ -46,16 +46,12 @@ router.post("/initsocket", (req, res) => {
 // | write your API methods below!|
 // |------------------------------|
 
-// anything else falls to this "not found" case
-router.all("*", (req, res) => {
-  console.log(`API route not found: ${req.method} ${req.url}`);
-  res.status(404).send({ msg: "API route not found" });
-});
 
-// Get all projects
+// Get my projects
 router.get("/projects", (req, res) => {
   try {
-    Project.find({}).then((projects) => res.send(projects));
+    const creator_id_var = req.query.creator_id;
+    Project.find({ creator_id: creator_id_var }).then((projects) => res.send(projects));
   } catch (error) {
     console.log(error)
   };
@@ -65,7 +61,19 @@ router.get("/projects", (req, res) => {
 // Get specific project information
 router.get("/project", (req, res) => {
   try {
-    Project.find({ project_id: req.query._id }).then((project) => res.send(project));
+    const project_id_var = req.query.project_id;
+    Project.find({ _id: project_id_var }).then((project) => res.send(project));
+  } catch (error) {
+    console.log(error)
+  };
+}
+);
+
+// Get specific project information
+router.get("/inputs", (req, res) => {
+  try {
+    const project_id_var = req.query.project_id;
+    Input.find({ project_id: project_id_var }).then((input) => res.send(input));
   } catch (error) {
     console.log(error)
   };
@@ -73,17 +81,50 @@ router.get("/project", (req, res) => {
 );
 
 // Create a new project
-router.post("project", (req, res) => {
+router.post("/project", (req, res) => {
+  // try {
+  const newProject = new Project({
+    project_name: req.body.project_name,
+    project_type: req.body.project_type,
+    picture: req.body.picture,
+    creator_id: req.user._id,
+    location_city: req.body.location_city,
+    location_country: req.body.location_country
+  });
+  newProject.save().then((project) => res.send(project));
+  // } catch (error) {
+  //   console.log(error);
+  // };
+}
+);
+
+// Create a new input
+router.post("/inputs", (req, res) => {
   try {
-    const newProject = new Project({
-      project_name: req.body.project_name,
-      project_type: req.body.project_type,
-      picture: req.body.picture,
-      creator_id: req.user._id,
-      location: {
-        address: req.body.location.address,
+    const newInput = new Input({
+      project_id: req.body.project_id,
+      creator_id: req.body.creator_id,
+      materials: {
+        concrete: {
+          quantity: req.body.materials.concrete.quantity,
+          unit: req.body.materials.concrete.unit,
+        },
+        glass: {
+          quantity: req.body.materials.glass.quantity,
+          unit: req.body.materials.glass.unit,
+        },
+        steel: {
+          quantity: req.body.materials.steel.quantity,
+          unit: req.body.materials.steel.unit,
+        },
+        timber: {
+          quantity: req.body.materials.timber.quantity,
+          unit: req.body.materials.timber.unit,
+        }
       }
+
     });
+    newInput.save().then((input) => res.send(input));
   } catch (error) {
     console.log(error);
   };
@@ -92,6 +133,42 @@ router.post("project", (req, res) => {
 
 
 
+// Get specific project information
+router.get("/results", (req, res) => {
+  try {
+    const project_id_var = req.query.project_id
+    Result.find({ project_id: project_id_var }).then((result) => res.send(result));
+  } catch (error) {
+    console.log(error)
+  };
+}
+);
+
+// Create a new result
+router.post("/results", (req, res) => {
+  // try {
+  const newResult = new Result({
+    project_id: req.body.project_id,
+    creator_id: req.body.creator_id,
+    project_name: req.body.project_name,
+    total_emissions: req.body.total_emissions,
+    concrete_emissions: req.body.concrete_emissions,
+    glass_emissions: req.body.glass_emissions,
+    steel_emissions: req.body.steel_emissions,
+    timber_emissions: req.body.timber_emissions,
+  });
+  newResult.save().then((result) => res.send(result));
+  // } catch (error) {
+  //   console.log(error);
+  // };
+}
+);
+
+// anything else falls to this "not found" case
+router.all("*", (req, res) => {
+  console.log(`API route not found: ${req.method} ${req.url}`);
+  res.status(404).send({ msg: "API route not found" });
+});
 // Input data into a project
 
 

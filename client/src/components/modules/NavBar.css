@@ -1,44 +1,97 @@
 .NavBar-container {
-    padding: var(--s) var(--l);
-    background-color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    position: sticky;
-    top: 0;
-    
-  }
-  
+  padding: var(--s) var(--l);
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+
+.logo-container {
+  padding: var(--s) var(--l);
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  cursor: pointer;
+}
+
 .NavBar-title {
-    color: var(--black);
-    font-size: 32px;
-  }
-  
+  transition: text-shadow 0.2s ease-in-out;
+}
+.logo-container:hover .NavBar-title {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+}
+.logo {
+  width: 40px;
+  margin-right: 2px;
+}
+
+.NavBar-title {
+  color: var(--black);
+  font-size: 32px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .NavBar-linkContainer {
-    padding: var(--m) var(--m) var(--m);
-    display: flex;
-    align-items: center;
-  }
-  
+  padding: var(--m) var(--m) var(--m);
+  display: flex;
+  align-items: center;
+}
+
 .NavBar-link,
 .NavBar-link:visited {
-    color: black;
-    font-size: 18px;
-    text-decoration: none;
-    height: 20px;
-    margin: 0px 32px 0px 0px;
-    padding-bottom: 3px; 
-    border-bottom-width: 3px;
-    border-bottom-style: solid;
-    border-bottom-color: transparent;
-  }
-  
+  color: black;
+  font-size: 18px;
+  text-decoration: none;
+  height: 20px;
+  margin: 0px 32px 0px 0px;
+  padding-bottom: 3px;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+}
+
 .NavBar-link:hover {
-    color: rgb(9, 156, 124);
-    border-bottom-color: rgb(9, 156, 124);
-  }
+  color: rgb(9, 156, 124);
+  border-bottom-color: rgb(9, 156, 124);
+}
 
 .NavBar-link.NavBar-login {
-    border-radius: 10px;
-  }
-  
+  border-radius: 10px;
+}
+
+.logo-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.signout-button {
+  background-color: rgb(220, 223, 221);
+  color: black;
+  border: 1.5px solid black;
+  font-size: 16px;
+  border-radius: 5.75px;
+  margin-top: 5px;
+  margin-left: 15px;
+  padding: 8px;
+  padding-left: 24px;
+  padding-right: 24px;
+  flex-basis: 10%;
+  flex-grow: 0;
+  min-width: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.signout-button:hover {
+  background-color: darkgray;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
