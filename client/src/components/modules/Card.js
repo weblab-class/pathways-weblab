@@ -25,7 +25,7 @@ const Card = (props) => {
   const navigateResults = () => {
     navigate("/results", { state: { project_id: props.project_id, user_id: props.creator_id } })
   }
-  
+
   return (
     <div className="flex-Container">
       <h1 className="Project-Name">{props.project_name}</h1>
@@ -39,7 +39,7 @@ const Card = (props) => {
           <img className="Display-Pic1" src={props.picture} />
         </div>
         <div className="buttonDiv">
-        <button type="button" className="SeeMore-Button"  onClick={() => { navigateResults() }}>See More</button>
+          <button type="button" className="SeeMore-Button"  onClick={() => { navigateResults() }}>See More</button>
         </div>
       </div>
     </div>

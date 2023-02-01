@@ -136,7 +136,7 @@ const Results = (props) => {
             <div className="HorizontalLine"></div>
             <div className="buttonsResults">
               <Link to="/projects/" className="Go-Back-Button">Back to Projects</Link>
-              <button className="Go-Back-Button" onClick={() => { goBackToInput() }}>Change Inputs</button>
+              <button className="Go-Back-Button1" onClick={() => { goBackToInput() }}>Change Inputs</button>
             </div>
             <div className="Info">
               <div> <img className="Display-Pic" src={project.picture} /></div>

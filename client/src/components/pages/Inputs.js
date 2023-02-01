@@ -127,131 +127,135 @@ const Inputs = (props) => {
       {props.userId ? (
         <div>
           <div className="InputBox">
-            <div>
-              <Link to="/projects/" className="Go-Back-Button">
-                Back
-              </Link>
-            </div>
-            <div>
-              <h1>{project.project_name}</h1>
-              <h2>This project is a {project.project_type}</h2>
-              <h2>{project.location_city}</h2>
-              <h2>{project.location_country}</h2>
-              <div className="HorizontalLine"></div>
-              <h2> Inputs </h2>
-
-              <div className="material-container">
-                <div className="input-headers">Concrete</div>
-                <input
-                  type="number"
-                  min="0"
-                  className="input-data"
-                  name="Concrete Input"
-                  id="favourite"
-                  placeholder="Concrete quantity"
-                  value={concreteQuantity}
-                  onChange={handleConcreteQuantityChange}
-                  size="20"
-                />
-
-                <div className="input-units">
-                  <select
-                    id="myList"
-                    value={concreteQuantityUnit}
-                    onChange={handleConcreteQuantityUnitChange}
-                  >
-                    <option>kg</option>
-                    <option>pounds</option>
-                  </select>
-                </div>
-              </div>
-              <div className="material-container">
-                <div className="input-headers">Steel</div>
-                <input
-                  className="input-data"
-                  type="number"
-                  min="0"
-                  name="Steel Input"
-                  id="favourite"
-                  placeholder="Steel quantity"
-                  value={steelQuantity}
-                  onChange={handleSteelQuantityChange}
-                  size="20"
-                />
-
-                <div className="input-units">
-                  <select
-                    className="input-data"
-                    id="myList"
-                    value={steelQuantityUnit}
-                    onChange={handleSteelQuantityUnitChange}
-                  >
-                    <option>kg</option>
-                    <option>pounds</option>
-                  </select>
-                </div>
-              </div>
-              <div className="material-container">
-                <div className="input-headers">Timber</div>
-                <input
-                  className="input-data"
-                  type="number"
-                  min="0"
-                  name="Timber Input"
-                  id="favourite"
-                  placeholder="Timber quantity"
-                  value={timberQuantity}
-                  onChange={handleTimberQuantityChange}
-                  size="20"
-                />
-
-                <div className="input-units">
-                  <select
-                    className="input-data"
-                    id="myList"
-                    value={timberQuantityUnit}
-                    onChange={handleTimberQuantityUnitChange}
-                  >
-                    <option>kg</option>
-                    <option>pounds</option>
-                  </select>
-                </div>
-              </div>
-              <div className="material-container">
-                <div className="input-headers">Glass</div>
-                <input
-                  className="input-data"
-                  type="number"
-                  min="0"
-                  name="Glass Input"
-                  id="favourite"
-                  placeholder="Glass quantity"
-                  value={glassQuantity}
-                  onChange={handleGlassQuantityChange}
-                  size="20"
-                />
-
-                <div className="input-units">
-                  <select
-                    className="input-data"
-                    id="myList"
-                    value={glassQuantityUnit}
-                    onChange={handleGlassQuantityUnitChange}
-                  >
-                    <option>kg</option>
-                    <option>pounds</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <button
-                  className="calculator-button"
+            <h1 className = "InputsHeader">Inputs</h1>
+            <div className="HorizontalLine"></div>
+            <div className="buttonInputs">
+            <Link to="/projects/" className="Go-Back-Button">
+                Back to Projects
+            </Link>
+            <button
+                  className="Go-Back-Button1"
                   onClick={() => {
                     createInput();
                   }}
                 >
                   Calculate
-                </button>
+            </button>
+            </div>
+            <div className="allInfo">
+              <div> <img className="Display-Pic" src={project.picture} /></div>
+              <div className = "Data">
+                <h1>{project.project_name}</h1>
+                <h2>Type: {project.project_type}</h2>
+                <h2>{project.location_city}, {project.location_country}</h2>
+                <div className = "materialList">
+                <div className="material-container">
+                  <div className="input-headers">Concrete</div>
+                  <input
+                    type="number"
+                    min="0"
+                    className="input-data"
+                    name="Concrete Input"
+                    id="favourite"
+                    placeholder="Concrete quantity"
+                    value={concreteQuantity}
+                    onChange={handleConcreteQuantityChange}
+                    size="20"
+                  />
+
+                  <div className="input-units">
+                    <select
+                      id="myList"
+                      value={concreteQuantityUnit}
+                      onChange={handleConcreteQuantityUnitChange}
+                    >
+                      <option>kg</option>
+                      <option>pounds</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="material-container">
+                  <div className="input-headers">Steel</div>
+                  <input
+                    className="input-data"
+                    type="number"
+                    min="0"
+                    name="Steel Input"
+                    id="favourite"
+                    placeholder="Steel quantity"
+                    value={steelQuantity}
+                    onChange={handleSteelQuantityChange}
+                    size="20"
+                  />
+
+                  <div className="input-units">
+                    <select
+                      className="input-data"
+                      id="myList"
+                      value={steelQuantityUnit}
+                      onChange={handleSteelQuantityUnitChange}
+                    >
+                      <option>kg</option>
+                      <option>pounds</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="material-container">
+                  <div className="input-headers">Timber</div>
+                  <input
+                    className="input-data"
+                    type="number"
+                    min="0"
+                    name="Timber Input"
+                    id="favourite"
+                    placeholder="Timber quantity"
+                    value={timberQuantity}
+                    onChange={handleTimberQuantityChange}
+                    size="20"
+                  />
+
+                  <div className="input-units">
+                    <select
+                      className="input-data"
+                      id="myList"
+                      value={timberQuantityUnit}
+                      onChange={handleTimberQuantityUnitChange}
+                    >
+                      <option>kg</option>
+                      <option>pounds</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="material-container">
+                  <div className="input-headers">Glass</div>
+                  <input
+                    className="input-data"
+                    type="number"
+                    min="0"
+                    name="Glass Input"
+                    id="favourite"
+                    placeholder="Glass quantity"
+                    value={glassQuantity}
+                    onChange={handleGlassQuantityChange}
+                    size="20"
+                  />
+
+                  <div className="input-units">
+                    <select
+                      className="input-data"
+                      id="myList"
+                      value={glassQuantityUnit}
+                      onChange={handleGlassQuantityUnitChange}
+                    >
+                      <option>kg</option>
+                      <option>pounds</option>
+                    </select>
+                  </div>
+                </div>
+                </div>
+                </div>
+              <div>
+                
               </div>
             </div>
           </div>

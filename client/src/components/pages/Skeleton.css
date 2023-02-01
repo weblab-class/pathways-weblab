@@ -10,6 +10,7 @@
 }
 
 .CO2-Title {
+  display:flex;
   margin-left: 200px;
   margin-top: 50px;
   margin-right: 200px;
@@ -19,22 +20,31 @@
   background-color: black;
   color: white;
   font-style: italic;
-
+  justify-content: center;
   text-align: center;
 }
 
 .try-calculator {
-  text-decoration: none;
+  display: flex;
   margin-left: 200px;
   margin-top: 50px;
   margin-right: 200px;
   margin-bottom: 50px;
-  padding: 30px;
-  font-size: 30px;
-  border-radius: 45px;
-  background-color: black;
-  color: white;
   cursor: pointer;
   justify-content: center;
   text-align: center;
+}
+
+.projects-link {
+  color: white;
+  text-decoration: none;
+  background-color: black;
+  font-size: 30px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.projects-link:hover {
+  color: white;
+  text-decoration: underline;
 }

@@ -199,7 +199,6 @@ const Projects = (props) => {
                     Create
                   </button>
                 </div>
-                {/* <Link to="/inputs/" className="Create-Final" onClick={() => { createProject() }}>Create</Link>*/}
               </div>
             </Modal>
           </div>
